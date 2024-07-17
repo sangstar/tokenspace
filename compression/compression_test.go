@@ -2,10 +2,8 @@ package compression
 
 import (
 	"github.com/stretchr/testify/assert"
-	"gonum.org/v1/gonum/mat"
 	"math/rand"
 	"testing"
-	"time"
 )
 
 func TestSVDOnLargeMatrix(t *testing.T) {
@@ -13,21 +11,15 @@ func TestSVDOnLargeMatrix(t *testing.T) {
 	rows := 50000
 	cols := 500
 
-	// Seed the random number generator for reproducibility
-	rand.Seed(time.Now().UnixNano())
-
-	// Create a slice to hold the random values
-	data := make([]float64, rows*cols)
-
-	// Populate the slice with random values
-	for i := range data {
-		data[i] = rand.Float64()
+	stackedList := make([][]float64, rows)
+	for i := range stackedList {
+		stackedList[i] = make([]float64, cols)
+		for j := range stackedList[i] {
+			stackedList[i][j] = rand.Float64()
+		}
 	}
 
-	// Create a new dense matrix with the random values
-	largeMatrix := mat.NewDense(rows, cols, data)
-
-	reduced, err := CompressSVD(largeMatrix, 2)
+	reduced, err := CompressSVD(stackedList, 2)
 
 	assert.Nil(t, err)
 	assert.NotNil(t, reduced)
@@ -36,4 +28,20 @@ func TestSVDOnLargeMatrix(t *testing.T) {
 	assert.Equal(t, rowsReduced, rows)
 	assert.NotEqual(t, colsReduced, cols)
 	assert.Equal(t, colsReduced, 2)
+}
+
+func TestConversionToDense(t *testing.T) {
+	stackedList := make([][]float64, 3)
+	for i := range stackedList {
+		stackedList[i] = make([]float64, 5)
+		for j := range stackedList[i] {
+			stackedList[i][j] = rand.Float64()
+		}
+	}
+
+	converted := ToDense(stackedList)
+	convertedRows, convertedCols := converted.Dims()
+	assert.Equal(t, convertedRows, 3)
+	assert.Equal(t, convertedCols, 5)
+
 }
