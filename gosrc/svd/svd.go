@@ -4,13 +4,13 @@ import (
 	"gonum.org/v1/gonum/mat"
 )
 
-func Compress(stackedList [][]float64, outputDim int) (mat.Dense, error) {
+func Compress(stackedList [][]float64, outputDim int) *mat.Dense {
 	m := ToDense(stackedList)
 	var svd mat.SVD
 	ok := svd.Factorize(m, mat.SVDThinU)
 	rows, _ := m.Dims()
 	if !ok {
-		return mat.Dense{}, nil
+		panic("factorization failed")
 	}
 	var U mat.Dense
 	svd.UTo(&U)
@@ -22,7 +22,7 @@ func Compress(stackedList [][]float64, outputDim int) (mat.Dense, error) {
 	// Calculate the reduced positions matrix
 	var reducedPositions mat.Dense
 	reducedPositions.Mul(U2, Sigma2)
-	return reducedPositions, nil
+	return &reducedPositions
 }
 
 func ToDense(stackedList [][]float64) *mat.Dense {

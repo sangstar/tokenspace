@@ -1364,16 +1364,17 @@ func Slice_mat_Matrix_append(handle CGoHandle, _vl CGoHandle) {
 //export svd_Compress
 func svd_Compress(stackedList CGoHandle, outputDim C.longlong) CGoHandle {
 	_saved_thread := C.PyEval_SaveThread()
-	cret, __err := svd.Compress(deptrFromHandle_Slice_Slice_float64(stackedList), int(outputDim))
+	defer C.PyEval_RestoreThread(_saved_thread)
+	return handleFromPtr_Ptr_mat_Dense(svd.Compress(deptrFromHandle_Slice_Slice_float64(stackedList), int(outputDim)))
 
-	C.PyEval_RestoreThread(_saved_thread)
-	if __err != nil {
-		estr := C.CString(__err.Error())
-		C.PyErr_SetString(C.PyExc_RuntimeError, estr)
-		C.free(unsafe.Pointer(estr))
-		return handleFromPtr_mat_Dense(nil)
-	}
-	return handleFromPtr_mat_Dense(&cret)
+}
+
+//export svd_OldDense
+func svd_OldDense(numRows C.longlong, numCols C.longlong, list CGoHandle) CGoHandle {
+	_saved_thread := C.PyEval_SaveThread()
+	defer C.PyEval_RestoreThread(_saved_thread)
+	return handleFromPtr_Ptr_mat_Dense(svd.OldDense(int(numRows), int(numCols), deptrFromHandle_Slice_float64(list)))
+
 }
 
 //export svd_ToDense

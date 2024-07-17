@@ -2278,6 +2278,29 @@ PyObject * _wrap__svd_svd_Compress(PyObject * PYBINDGEN_UNUSED(dummy), PyObject 
 
 
 PyObject *
+_wrap__svd_svd_OldDense(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t numRows;
+    int64_t numCols;
+    int64_t list;
+    const char *keywords[] = {"numRows", "numCols", "list", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LLL", (char **) keywords, &numRows, &numCols, &list)) {
+        return NULL;
+    }
+    retval = svd_OldDense(numRows, numCols, list);
+    if (PyErr_Occurred()) {
+        return NULL;
+    }
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__svd_svd_OldDense(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
 _wrap__svd_svd_ToDense(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
@@ -2419,6 +2442,7 @@ static PyMethodDef _svd_functions[] = {
     {(char *) "Slice_mat_Matrix_set", (PyCFunction) _wrap__svd_Slice_mat_Matrix_set, METH_KEYWORDS|METH_VARARGS, "Slice_mat_Matrix_set(handle, idx, value)\n\ntype: handle: int64_t\ntype: idx: int\ntype: value: int64_t" },
     {(char *) "Slice_mat_Matrix_append", (PyCFunction) _wrap__svd_Slice_mat_Matrix_append, METH_KEYWORDS|METH_VARARGS, "Slice_mat_Matrix_append(handle, value)\n\ntype: handle: int64_t\ntype: value: int64_t" },
     {(char *) "svd_Compress", (PyCFunction) _wrap__svd_svd_Compress, METH_KEYWORDS|METH_VARARGS, "svd_Compress(stackedList, outputDim)\n\ntype: stackedList: int64_t\ntype: outputDim: int64_t" },
+    {(char *) "svd_OldDense", (PyCFunction) _wrap__svd_svd_OldDense, METH_KEYWORDS|METH_VARARGS, "svd_OldDense(numRows, numCols, list)\n\ntype: numRows: int64_t\ntype: numCols: int64_t\ntype: list: int64_t" },
     {(char *) "svd_ToDense", (PyCFunction) _wrap__svd_svd_ToDense, METH_KEYWORDS|METH_VARARGS, "svd_ToDense(stackedList)\n\ntype: stackedList: int64_t" },
     {NULL, NULL, 0, NULL}
 };
