@@ -1,4 +1,4 @@
-package compression
+package svd
 
 import (
 	"github.com/stretchr/testify/assert"
@@ -19,7 +19,7 @@ func TestSVDOnLargeMatrix(t *testing.T) {
 		}
 	}
 
-	reduced, err := CompressSVD(stackedList, 2)
+	reduced, err := Compress(stackedList, 2)
 
 	assert.Nil(t, err)
 	assert.NotNil(t, reduced)

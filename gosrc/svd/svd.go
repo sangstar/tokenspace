@@ -1,10 +1,10 @@
-package compression
+package svd
 
 import (
 	"gonum.org/v1/gonum/mat"
 )
 
-func CompressSVD(stackedList [][]float64, outputDim int) (mat.Dense, error) {
+func Compress(stackedList [][]float64, outputDim int) (mat.Dense, error) {
 	m := ToDense(stackedList)
 	var svd mat.SVD
 	ok := svd.Factorize(m, mat.SVDThinU)
