@@ -306,7 +306,6 @@ extern long long Slice_mat_Matrix_subslice(long long handle, GoInt _st, GoInt _e
 extern void Slice_mat_Matrix_set(long long handle, GoInt _idx, long long _vl);
 extern void Slice_mat_Matrix_append(long long handle, long long _vl);
 extern long long svd_Compress(long long stackedList, long long outputDim);
-extern long long svd_OldDense(long long numRows, long long numCols, long long list);
 extern long long svd_ToDense(long long stackedList);
 
 #ifdef __cplusplus

@@ -19,9 +19,8 @@ func TestSVDOnLargeMatrix(t *testing.T) {
 		}
 	}
 
-	reduced, err := Compress(stackedList, 2)
+	reduced := Compress(stackedList, 2)
 
-	assert.Nil(t, err)
 	assert.NotNil(t, reduced)
 
 	rowsReduced, colsReduced := reduced.Dims()
