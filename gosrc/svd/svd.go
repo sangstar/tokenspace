@@ -4,8 +4,8 @@ import (
 	"gonum.org/v1/gonum/mat"
 )
 
-func Compress(stackedList [][]float64, outputDim int) *mat.Dense {
-	m := ToDense(stackedList)
+func Compress(List []float64, r int, c int, outputDim int) []float64 {
+	m := mat.NewDense(r, c, List)
 	var svd mat.SVD
 	ok := svd.Factorize(m, mat.SVDThinU)
 	rows, _ := m.Dims()
@@ -22,19 +22,16 @@ func Compress(stackedList [][]float64, outputDim int) *mat.Dense {
 	// Calculate the reduced positions matrix
 	var reducedPositions mat.Dense
 	reducedPositions.Mul(U2, Sigma2)
-	return &reducedPositions
+	return DenseToArray(&reducedPositions)
 }
 
-func ToDense(stackedList [][]float64) *mat.Dense {
-	numRows := len(stackedList)
-	numCols := len(stackedList[0])
-
-	contiguousData := make([]float64, numCols*numRows)
-	for i := 0; i < numRows; i++ {
-		for j := 0; j < numCols; j++ {
-			contiguousData[i*numCols+j] = stackedList[i][j]
+func DenseToArray(m *mat.Dense) []float64 {
+	r, c := m.Dims()
+	outputArr := make([]float64, r*c)
+	for i := 0; i < r; i++ {
+		for j := 0; j < c; j++ {
+			outputArr[i*c+j] = m.At(i, j)
 		}
 	}
-
-	return mat.NewDense(numRows, numCols, contiguousData)
+	return outputArr
 }

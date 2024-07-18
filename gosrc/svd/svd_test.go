@@ -11,36 +11,16 @@ func TestSVDOnLargeMatrix(t *testing.T) {
 	rows := 50000
 	cols := 500
 
-	stackedList := make([][]float64, rows)
-	for i := range stackedList {
-		stackedList[i] = make([]float64, cols)
-		for j := range stackedList[i] {
-			stackedList[i][j] = rand.Float64()
-		}
+	toDim := 2
+
+	data := make([]float64, rows*cols)
+	for i := range data {
+		data[i] = rand.NormFloat64()
 	}
 
-	reduced := Compress(stackedList, 2)
+	reduced := Compress(data, rows, cols, toDim)
 
 	assert.NotNil(t, reduced)
-
-	rowsReduced, colsReduced := reduced.Dims()
-	assert.Equal(t, rowsReduced, rows)
-	assert.NotEqual(t, colsReduced, cols)
-	assert.Equal(t, colsReduced, 2)
-}
-
-func TestConversionToDense(t *testing.T) {
-	stackedList := make([][]float64, 3)
-	for i := range stackedList {
-		stackedList[i] = make([]float64, 5)
-		for j := range stackedList[i] {
-			stackedList[i][j] = rand.Float64()
-		}
-	}
-
-	converted := ToDense(stackedList)
-	convertedRows, convertedCols := converted.Dims()
-	assert.Equal(t, convertedRows, 3)
-	assert.Equal(t, convertedCols, 5)
+	assert.Equal(t, len(reduced), rows*toDim)
 
 }

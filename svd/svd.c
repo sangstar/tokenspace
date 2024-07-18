@@ -2038,115 +2038,6 @@ PyObject * _wrap__svd_Slice_uint8_append(PyObject * PYBINDGEN_UNUSED(dummy), PyO
 
 
 PyObject *
-_wrap__svd_Slice_Slice_float64_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs))
-{
-    PyObject *py_retval;
-    int64_t retval;
-
-    retval = Slice_Slice_float64_CTor();
-    py_retval = Py_BuildValue((char *) "L", retval);
-    return py_retval;
-}
-PyObject * _wrap__svd_Slice_Slice_float64_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs));
-
-
-PyObject *
-_wrap__svd_Slice_Slice_float64_len(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
-{
-    PyObject *py_retval;
-    int retval;
-    int64_t handle;
-    const char *keywords[] = {"handle", NULL};
-
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
-        return NULL;
-    }
-    retval = Slice_Slice_float64_len(handle);
-    py_retval = Py_BuildValue((char *) "i", retval);
-    return py_retval;
-}
-PyObject * _wrap__svd_Slice_Slice_float64_len(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
-
-
-PyObject *
-_wrap__svd_Slice_Slice_float64_elem(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
-{
-    PyObject *py_retval;
-    int64_t retval;
-    int64_t handle;
-    int idx;
-    const char *keywords[] = {"handle", "idx", NULL};
-
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "Li", (char **) keywords, &handle, &idx)) {
-        return NULL;
-    }
-    retval = Slice_Slice_float64_elem(handle, idx);
-    py_retval = Py_BuildValue((char *) "L", retval);
-    return py_retval;
-}
-PyObject * _wrap__svd_Slice_Slice_float64_elem(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
-
-
-PyObject *
-_wrap__svd_Slice_Slice_float64_subslice(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
-{
-    PyObject *py_retval;
-    int64_t retval;
-    int64_t handle;
-    int st;
-    int ed;
-    const char *keywords[] = {"handle", "st", "ed", NULL};
-
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "Lii", (char **) keywords, &handle, &st, &ed)) {
-        return NULL;
-    }
-    retval = Slice_Slice_float64_subslice(handle, st, ed);
-    py_retval = Py_BuildValue((char *) "L", retval);
-    return py_retval;
-}
-PyObject * _wrap__svd_Slice_Slice_float64_subslice(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
-
-
-PyObject *
-_wrap__svd_Slice_Slice_float64_set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
-{
-    PyObject *py_retval;
-    int64_t handle;
-    int idx;
-    int64_t value;
-    const char *keywords[] = {"handle", "idx", "value", NULL};
-
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LiL", (char **) keywords, &handle, &idx, &value)) {
-        return NULL;
-    }
-    Slice_Slice_float64_set(handle, idx, value);
-    Py_INCREF(Py_None);
-    py_retval = Py_None;
-    return py_retval;
-}
-PyObject * _wrap__svd_Slice_Slice_float64_set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
-
-
-PyObject *
-_wrap__svd_Slice_Slice_float64_append(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
-{
-    PyObject *py_retval;
-    int64_t handle;
-    int64_t value;
-    const char *keywords[] = {"handle", "value", NULL};
-
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &value)) {
-        return NULL;
-    }
-    Slice_Slice_float64_append(handle, value);
-    Py_INCREF(Py_None);
-    py_retval = Py_None;
-    return py_retval;
-}
-PyObject * _wrap__svd_Slice_Slice_float64_append(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
-
-
-PyObject *
 _wrap__svd_Slice_mat_Matrix_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs))
 {
     PyObject *py_retval;
@@ -2260,14 +2151,16 @@ _wrap__svd_svd_Compress(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyOb
 {
     PyObject *py_retval;
     int64_t retval;
-    int64_t stackedList;
+    int64_t List;
+    int64_t r;
+    int64_t c;
     int64_t outputDim;
-    const char *keywords[] = {"stackedList", "outputDim", NULL};
+    const char *keywords[] = {"List", "r", "c", "outputDim", NULL};
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &stackedList, &outputDim)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LLLL", (char **) keywords, &List, &r, &c, &outputDim)) {
         return NULL;
     }
-    retval = svd_Compress(stackedList, outputDim);
+    retval = svd_Compress(List, r, c, outputDim);
     if (PyErr_Occurred()) {
         return NULL;
     }
@@ -2278,24 +2171,24 @@ PyObject * _wrap__svd_svd_Compress(PyObject * PYBINDGEN_UNUSED(dummy), PyObject 
 
 
 PyObject *
-_wrap__svd_svd_ToDense(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__svd_svd_DenseToArray(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
     int64_t retval;
-    int64_t stackedList;
-    const char *keywords[] = {"stackedList", NULL};
+    int64_t m;
+    const char *keywords[] = {"m", NULL};
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &stackedList)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &m)) {
         return NULL;
     }
-    retval = svd_ToDense(stackedList);
+    retval = svd_DenseToArray(m);
     if (PyErr_Occurred()) {
         return NULL;
     }
     py_retval = Py_BuildValue((char *) "L", retval);
     return py_retval;
 }
-PyObject * _wrap__svd_svd_ToDense(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__svd_svd_DenseToArray(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 static PyMethodDef _svd_functions[] = {
     {(char *) "GoPyInit", (PyCFunction) _wrap__svd_GoPyInit, METH_NOARGS, "GoPyInit()\n\n" },
@@ -2406,20 +2299,14 @@ static PyMethodDef _svd_functions[] = {
     {(char *) "Slice_uint8_subslice", (PyCFunction) _wrap__svd_Slice_uint8_subslice, METH_KEYWORDS|METH_VARARGS, "Slice_uint8_subslice(handle, st, ed)\n\ntype: handle: int64_t\ntype: st: int\ntype: ed: int" },
     {(char *) "Slice_uint8_set", (PyCFunction) _wrap__svd_Slice_uint8_set, METH_KEYWORDS|METH_VARARGS, "Slice_uint8_set(handle, idx, value)\n\ntype: handle: int64_t\ntype: idx: int\ntype: value: uint8_t" },
     {(char *) "Slice_uint8_append", (PyCFunction) _wrap__svd_Slice_uint8_append, METH_KEYWORDS|METH_VARARGS, "Slice_uint8_append(handle, value)\n\ntype: handle: int64_t\ntype: value: uint8_t" },
-    {(char *) "Slice_Slice_float64_CTor", (PyCFunction) _wrap__svd_Slice_Slice_float64_CTor, METH_NOARGS, "Slice_Slice_float64_CTor()\n\n" },
-    {(char *) "Slice_Slice_float64_len", (PyCFunction) _wrap__svd_Slice_Slice_float64_len, METH_KEYWORDS|METH_VARARGS, "Slice_Slice_float64_len(handle)\n\ntype: handle: int64_t" },
-    {(char *) "Slice_Slice_float64_elem", (PyCFunction) _wrap__svd_Slice_Slice_float64_elem, METH_KEYWORDS|METH_VARARGS, "Slice_Slice_float64_elem(handle, idx)\n\ntype: handle: int64_t\ntype: idx: int" },
-    {(char *) "Slice_Slice_float64_subslice", (PyCFunction) _wrap__svd_Slice_Slice_float64_subslice, METH_KEYWORDS|METH_VARARGS, "Slice_Slice_float64_subslice(handle, st, ed)\n\ntype: handle: int64_t\ntype: st: int\ntype: ed: int" },
-    {(char *) "Slice_Slice_float64_set", (PyCFunction) _wrap__svd_Slice_Slice_float64_set, METH_KEYWORDS|METH_VARARGS, "Slice_Slice_float64_set(handle, idx, value)\n\ntype: handle: int64_t\ntype: idx: int\ntype: value: int64_t" },
-    {(char *) "Slice_Slice_float64_append", (PyCFunction) _wrap__svd_Slice_Slice_float64_append, METH_KEYWORDS|METH_VARARGS, "Slice_Slice_float64_append(handle, value)\n\ntype: handle: int64_t\ntype: value: int64_t" },
     {(char *) "Slice_mat_Matrix_CTor", (PyCFunction) _wrap__svd_Slice_mat_Matrix_CTor, METH_NOARGS, "Slice_mat_Matrix_CTor()\n\n" },
     {(char *) "Slice_mat_Matrix_len", (PyCFunction) _wrap__svd_Slice_mat_Matrix_len, METH_KEYWORDS|METH_VARARGS, "Slice_mat_Matrix_len(handle)\n\ntype: handle: int64_t" },
     {(char *) "Slice_mat_Matrix_elem", (PyCFunction) _wrap__svd_Slice_mat_Matrix_elem, METH_KEYWORDS|METH_VARARGS, "Slice_mat_Matrix_elem(handle, idx)\n\ntype: handle: int64_t\ntype: idx: int" },
     {(char *) "Slice_mat_Matrix_subslice", (PyCFunction) _wrap__svd_Slice_mat_Matrix_subslice, METH_KEYWORDS|METH_VARARGS, "Slice_mat_Matrix_subslice(handle, st, ed)\n\ntype: handle: int64_t\ntype: st: int\ntype: ed: int" },
     {(char *) "Slice_mat_Matrix_set", (PyCFunction) _wrap__svd_Slice_mat_Matrix_set, METH_KEYWORDS|METH_VARARGS, "Slice_mat_Matrix_set(handle, idx, value)\n\ntype: handle: int64_t\ntype: idx: int\ntype: value: int64_t" },
     {(char *) "Slice_mat_Matrix_append", (PyCFunction) _wrap__svd_Slice_mat_Matrix_append, METH_KEYWORDS|METH_VARARGS, "Slice_mat_Matrix_append(handle, value)\n\ntype: handle: int64_t\ntype: value: int64_t" },
-    {(char *) "svd_Compress", (PyCFunction) _wrap__svd_svd_Compress, METH_KEYWORDS|METH_VARARGS, "svd_Compress(stackedList, outputDim)\n\ntype: stackedList: int64_t\ntype: outputDim: int64_t" },
-    {(char *) "svd_ToDense", (PyCFunction) _wrap__svd_svd_ToDense, METH_KEYWORDS|METH_VARARGS, "svd_ToDense(stackedList)\n\ntype: stackedList: int64_t" },
+    {(char *) "svd_Compress", (PyCFunction) _wrap__svd_svd_Compress, METH_KEYWORDS|METH_VARARGS, "svd_Compress(List, r, c, outputDim)\n\ntype: List: int64_t\ntype: r: int64_t\ntype: c: int64_t\ntype: outputDim: int64_t" },
+    {(char *) "svd_DenseToArray", (PyCFunction) _wrap__svd_svd_DenseToArray, METH_KEYWORDS|METH_VARARGS, "svd_DenseToArray(m)\n\ntype: m: int64_t" },
     {NULL, NULL, 0, NULL}
 };
 #if PY_VERSION_HEX >= 0x03000000

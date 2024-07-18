@@ -1235,62 +1235,6 @@ func Slice_uint8_append(handle CGoHandle, _vl C.uchar) {
 
 // ---- Types ---
 
-// Converters for implicit pointer handles for type: [][]float64
-func ptrFromHandle_Slice_Slice_float64(h CGoHandle) *[][]float64 {
-	p := gopyh.VarFromHandle((gopyh.CGoHandle)(h), "[][]float64")
-	if p == nil {
-		return nil
-	}
-	return p.(*[][]float64)
-}
-func deptrFromHandle_Slice_Slice_float64(h CGoHandle) [][]float64 {
-	p := ptrFromHandle_Slice_Slice_float64(h)
-	if p == nil {
-		return nil
-	}
-	return *p
-}
-func handleFromPtr_Slice_Slice_float64(p interface{}) CGoHandle {
-	return CGoHandle(gopyh.Register("[][]float64", p))
-}
-
-// --- wrapping slice: [][]float64 ---
-//
-//export Slice_Slice_float64_CTor
-func Slice_Slice_float64_CTor() CGoHandle {
-	return CGoHandle(handleFromPtr_Slice_Slice_float64(&[][]float64{}))
-}
-
-//export Slice_Slice_float64_len
-func Slice_Slice_float64_len(handle CGoHandle) int {
-	return len(deptrFromHandle_Slice_Slice_float64(handle))
-}
-
-//export Slice_Slice_float64_elem
-func Slice_Slice_float64_elem(handle CGoHandle, _idx int) CGoHandle {
-	s := deptrFromHandle_Slice_Slice_float64(handle)
-	return handleFromPtr_Slice_float64(&(s[_idx]))
-}
-
-//export Slice_Slice_float64_subslice
-func Slice_Slice_float64_subslice(handle CGoHandle, _st, _ed int) CGoHandle {
-	s := deptrFromHandle_Slice_Slice_float64(handle)
-	ss := s[_st:_ed]
-	return CGoHandle(handleFromPtr_Slice_Slice_float64(&ss))
-}
-
-//export Slice_Slice_float64_set
-func Slice_Slice_float64_set(handle CGoHandle, _idx int, _vl CGoHandle) {
-	s := deptrFromHandle_Slice_Slice_float64(handle)
-	s[_idx] = deptrFromHandle_Slice_float64(_vl)
-}
-
-//export Slice_Slice_float64_append
-func Slice_Slice_float64_append(handle CGoHandle, _vl CGoHandle) {
-	s := ptrFromHandle_Slice_Slice_float64(handle)
-	*s = append(*s, deptrFromHandle_Slice_float64(_vl))
-}
-
 // Converters for implicit pointer handles for type: []mat.Matrix
 func ptrFromHandle_Slice_mat_Matrix(h CGoHandle) *[]mat.Matrix {
 	p := gopyh.VarFromHandle((gopyh.CGoHandle)(h), "[]mat.Matrix")
@@ -1362,17 +1306,19 @@ func Slice_mat_Matrix_append(handle CGoHandle, _vl CGoHandle) {
 // ---- Functions ---
 
 //export svd_Compress
-func svd_Compress(stackedList CGoHandle, outputDim C.longlong) CGoHandle {
+func svd_Compress(List CGoHandle, r C.longlong, c C.longlong, outputDim C.longlong) CGoHandle {
 	_saved_thread := C.PyEval_SaveThread()
 	defer C.PyEval_RestoreThread(_saved_thread)
-	return handleFromPtr_Ptr_mat_Dense(svd.Compress(deptrFromHandle_Slice_Slice_float64(stackedList), int(outputDim)))
+	cret := svd.Compress(deptrFromHandle_Slice_float64(List), int(r), int(c), int(outputDim))
 
+	return handleFromPtr_Slice_float64(&cret)
 }
 
-//export svd_ToDense
-func svd_ToDense(stackedList CGoHandle) CGoHandle {
+//export svd_DenseToArray
+func svd_DenseToArray(m CGoHandle) CGoHandle {
 	_saved_thread := C.PyEval_SaveThread()
 	defer C.PyEval_RestoreThread(_saved_thread)
-	return handleFromPtr_Ptr_mat_Dense(svd.ToDense(deptrFromHandle_Slice_Slice_float64(stackedList)))
+	cret := svd.DenseToArray(ptrFromHandle_Ptr_mat_Dense(m))
 
+	return handleFromPtr_Slice_float64(&cret)
 }

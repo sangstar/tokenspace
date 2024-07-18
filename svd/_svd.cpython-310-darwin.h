@@ -288,15 +288,6 @@ extern long long Slice_uint8_subslice(long long handle, GoInt _st, GoInt _ed);
 extern void Slice_uint8_set(long long handle, GoInt _idx, unsigned char _vl);
 extern void Slice_uint8_append(long long handle, unsigned char _vl);
 
-// --- wrapping slice: [][]float64 ---
-//
-extern long long Slice_Slice_float64_CTor();
-extern GoInt Slice_Slice_float64_len(long long handle);
-extern long long Slice_Slice_float64_elem(long long handle, GoInt _idx);
-extern long long Slice_Slice_float64_subslice(long long handle, GoInt _st, GoInt _ed);
-extern void Slice_Slice_float64_set(long long handle, GoInt _idx, long long _vl);
-extern void Slice_Slice_float64_append(long long handle, long long _vl);
-
 // --- wrapping slice: []mat.Matrix ---
 //
 extern long long Slice_mat_Matrix_CTor();
@@ -305,8 +296,8 @@ extern long long Slice_mat_Matrix_elem(long long handle, GoInt _idx);
 extern long long Slice_mat_Matrix_subslice(long long handle, GoInt _st, GoInt _ed);
 extern void Slice_mat_Matrix_set(long long handle, GoInt _idx, long long _vl);
 extern void Slice_mat_Matrix_append(long long handle, long long _vl);
-extern long long svd_Compress(long long stackedList, long long outputDim);
-extern long long svd_ToDense(long long stackedList);
+extern long long svd_Compress(long long List, long long r, long long c, long long outputDim);
+extern long long svd_DenseToArray(long long m);
 
 #ifdef __cplusplus
 }
