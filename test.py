@@ -1,20 +1,27 @@
 import numpy as np
 from svd import svd
+from transformers import AutoTokenizer, AutoModel
+import torch
 
-# Convert Python list to Slice_Slice_float64
-data = svd.go.Slice_float64([1, 2, 3, 4, 5, 6])
+tokenizer = AutoTokenizer.from_pretrained("EleutherAI/pythia-70m")
+model = AutoModel.from_pretrained("EleutherAI/pythia-70m")
 
-rows = 2
-cols = 3
+
+
+embedding_matrix = model.get_input_embeddings().weight
+
+embedding_array = np.ascontiguousarray(embedding_matrix.detach().numpy())
+
+flat_list = embedding_array.flatten().tolist()
+data = svd.go.Slice_float64(flat_list)
+
+rows, cols = embedding_array.shape
 
 output_dim = 2
 
-# Call the Compress function with the converted data
 result = svd.Compress(data, rows, cols, output_dim)
 
-# Extract the data from the result
 
-# Convert the extracted data to a NumPy array
-numpy_array = np.array(data).reshape(rows, cols)
+numpy_array = np.array(result).reshape(rows, output_dim)
 
 print(numpy_array)
