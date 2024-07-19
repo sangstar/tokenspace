@@ -312,7 +312,7 @@ extern void tui_ResultSet_Distances_Set(long long handle, long long val);
 // --- wrapping struct: tui.Word ---
 //
 extern long long tui_Word_CTor();
-extern long long tui_ProvePassable(char* centralWord, long long centralWordVec, long long closestWords, long long closestWordDistances, long long closestWordVectors);
+extern char* tui_Visualize(char* centralWord, long long centralWordVec, long long closestWords, long long closestWordDistances, long long closestWordVectors);
 
 #ifdef __cplusplus
 }

@@ -269,11 +269,11 @@ class Word(go.GoClass):
 
 
 # ---- Constructors ---
-def ProvePassable(centralWord, centralWordVec, closestWords, closestWordDistances, closestWordVectors):
-	"""ProvePassable(str centralWord, []float centralWordVec, []str closestWords, []float closestWordDistances, []float closestWordVectors) object"""
-	return ResultSet(handle=_tui.tui_ProvePassable(centralWord, centralWordVec.handle, closestWords.handle, closestWordDistances.handle, closestWordVectors.handle))
 
 
 # ---- Functions ---
+def Visualize(centralWord, centralWordVec, closestWords, closestWordDistances, closestWordVectors):
+	"""Visualize(str centralWord, []float centralWordVec, []str closestWords, []float closestWordDistances, []float closestWordVectors) str"""
+	return _tui.tui_Visualize(centralWord, centralWordVec.handle, closestWords.handle, closestWordDistances.handle, closestWordVectors.handle)
 
 

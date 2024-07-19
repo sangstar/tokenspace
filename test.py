@@ -5,7 +5,8 @@ import typing
 from typing import List, Tuple, Any
 from gensim.models import KeyedVectors
 import gensim.downloader as api
-import tui
+from tui import go
+from tui import tui
 
 def cos_sim(a: np.ndarray, b: np.ndarray) -> float:
     return (a.dot(b)) / (np.linalg.norm(a) * np.linalg.norm(b))
@@ -45,12 +46,9 @@ result = svd.Compress(data, rows, cols, output_dim)
 
 numpy_array = np.array(result).reshape(rows, output_dim)
 
-print(numpy_array)
 
 top = get_top_n("hello", 20, numpy_array, model)
 
-from tui import go
-from tui import tui
 
 new_top = [
     top[0],
@@ -60,4 +58,4 @@ new_top = [
     go.Slice_float32(top[4]),
 ]
 
-tui.ProvePassable(*new_top)
+tui.Visualize(*new_top)

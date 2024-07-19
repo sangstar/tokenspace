@@ -2321,10 +2321,10 @@ PyObject * _wrap__tui_tui_Word_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject 
 
 
 PyObject *
-_wrap__tui_tui_ProvePassable(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__tui_tui_Visualize(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
-    int64_t retval;
+    char *retval;
     char *centralWord;
     int64_t centralWordVec;
     int64_t closestWords;
@@ -2335,14 +2335,14 @@ _wrap__tui_tui_ProvePassable(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args,
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "sLLLL", (char **) keywords, &centralWord, &centralWordVec, &closestWords, &closestWordDistances, &closestWordVectors)) {
         return NULL;
     }
-    retval = tui_ProvePassable(centralWord, centralWordVec, closestWords, closestWordDistances, closestWordVectors);
+    retval = tui_Visualize(centralWord, centralWordVec, closestWords, closestWordDistances, closestWordVectors);
     if (PyErr_Occurred()) {
         return NULL;
     }
-    py_retval = Py_BuildValue((char *) "L", retval);
+    py_retval = Py_BuildValue((char *) "s", retval);
     return py_retval;
 }
-PyObject * _wrap__tui_tui_ProvePassable(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__tui_tui_Visualize(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 static PyMethodDef _tui_functions[] = {
     {(char *) "GoPyInit", (PyCFunction) _wrap__tui_GoPyInit, METH_NOARGS, "GoPyInit()\n\n" },
@@ -2469,7 +2469,7 @@ static PyMethodDef _tui_functions[] = {
     {(char *) "tui_ResultSet_Distances_Get", (PyCFunction) _wrap__tui_tui_ResultSet_Distances_Get, METH_KEYWORDS|METH_VARARGS, "tui_ResultSet_Distances_Get(handle)\n\ntype: handle: int64_t" },
     {(char *) "tui_ResultSet_Distances_Set", (PyCFunction) _wrap__tui_tui_ResultSet_Distances_Set, METH_KEYWORDS|METH_VARARGS, "tui_ResultSet_Distances_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
     {(char *) "tui_Word_CTor", (PyCFunction) _wrap__tui_tui_Word_CTor, METH_NOARGS, "tui_Word_CTor()\n\n" },
-    {(char *) "tui_ProvePassable", (PyCFunction) _wrap__tui_tui_ProvePassable, METH_KEYWORDS|METH_VARARGS, "tui_ProvePassable(centralWord, centralWordVec, closestWords, closestWordDistances, closestWordVectors)\n\ntype: centralWord: char *\ntype: centralWordVec: int64_t\ntype: closestWords: int64_t\ntype: closestWordDistances: int64_t\ntype: closestWordVectors: int64_t" },
+    {(char *) "tui_Visualize", (PyCFunction) _wrap__tui_tui_Visualize, METH_KEYWORDS|METH_VARARGS, "tui_Visualize(centralWord, centralWordVec, closestWords, closestWordDistances, closestWordVectors)\n\ntype: centralWord: char *\ntype: centralWordVec: int64_t\ntype: closestWords: int64_t\ntype: closestWordDistances: int64_t\ntype: closestWordVectors: int64_t" },
     {NULL, NULL, 0, NULL}
 };
 #if PY_VERSION_HEX >= 0x03000000

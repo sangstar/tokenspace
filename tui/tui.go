@@ -1301,12 +1301,19 @@ func tui_Word_CTor() CGoHandle {
 
 // ---- Constructors ---
 
-//export tui_ProvePassable
-func tui_ProvePassable(centralWord *C.char, centralWordVec CGoHandle, closestWords CGoHandle, closestWordDistances CGoHandle, closestWordVectors CGoHandle) CGoHandle {
-	_saved_thread := C.PyEval_SaveThread()
-	defer C.PyEval_RestoreThread(_saved_thread)
-	return handleFromPtr_Ptr_tui_ResultSet(tui.ProvePassable(C.GoString(centralWord), deptrFromHandle_Slice_float32(centralWordVec), deptrFromHandle_Slice_string(closestWords), deptrFromHandle_Slice_float32(closestWordDistances), deptrFromHandle_Slice_float32(closestWordVectors)))
-
-}
-
 // ---- Functions ---
+
+//export tui_Visualize
+func tui_Visualize(centralWord *C.char, centralWordVec CGoHandle, closestWords CGoHandle, closestWordDistances CGoHandle, closestWordVectors CGoHandle) *C.char {
+	_saved_thread := C.PyEval_SaveThread()
+	var __err error
+	__err = tui.Visualize(C.GoString(centralWord), deptrFromHandle_Slice_float32(centralWordVec), deptrFromHandle_Slice_string(closestWords), deptrFromHandle_Slice_float32(closestWordDistances), deptrFromHandle_Slice_float32(closestWordVectors))
+
+	C.PyEval_RestoreThread(_saved_thread)
+	if __err != nil {
+		estr := C.CString(__err.Error())
+		C.PyErr_SetString(C.PyExc_RuntimeError, estr)
+		return estr
+	}
+	return C.CString("")
+}
