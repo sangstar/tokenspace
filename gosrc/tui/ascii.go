@@ -2,6 +2,7 @@ package tui
 
 import (
 	"cmp"
+	"fmt"
 	"math"
 	"slices"
 )
@@ -54,7 +55,7 @@ func Plot(set *ResultSet) string {
 	}
 
 	// Go down line by line
-	xWindowSize := 30
+	xWindowSize := 10
 	yWindowSize := 10
 
 	// Normalize by
@@ -80,7 +81,7 @@ func Plot(set *ResultSet) string {
 			}
 			for _, word := range words {
 				if int(word.vector[0]) == x && int(word.vector[1]) == y {
-					line += "|" + word.name + "|"
+					line += fmt.Sprintf("(%s)", word.name)
 					// graphic += fmt.Sprintf("¤ %s", word.name)
 					//graphic += fmt.Sprintf("¤ %s (%.1f, %.1f)", word.name, word.vector[0], word.vector[1])
 				}
