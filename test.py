@@ -49,6 +49,11 @@ numpy_array = np.array(result).reshape(rows, output_dim)
 top = get_top_n("tennis", 100, numpy_array, model)
 
 
+# TODO: Pass `result` to `tui.Visualize` and do the parsing on the Go
+#       side. That way if I want to center on a new word I don't have to
+#       re-run the python script. `result` has all the data I need.
+#       Will be necessary for the TUI.
+
 new_top = [
     top[0],
     go.Slice_float32(top[1]),

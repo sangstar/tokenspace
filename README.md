@@ -1,5 +1,5 @@
 # wordspace
-Visualize word2vec embeddings in a TUI.
+Visualize word2vec embeddings in a TUI (work in progress).
 
 ```
          (legends)  (poker)       (varsity)   
