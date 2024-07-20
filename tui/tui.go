@@ -56,7 +56,7 @@ import (
 
 	"github.com/go-python/gopy/gopyh" // handler
 
-	"tokenspace/gosrc/tui"
+	"wordspace/gosrc/tui"
 )
 
 // main doesn't do anything in lib / pkg mode, but is essential for exe mode
@@ -1302,6 +1302,14 @@ func tui_Word_CTor() CGoHandle {
 // ---- Constructors ---
 
 // ---- Functions ---
+
+//export tui_Plot
+func tui_Plot(words CGoHandle) *C.char {
+	_saved_thread := C.PyEval_SaveThread()
+	defer C.PyEval_RestoreThread(_saved_thread)
+	return C.CString(tui.Plot(deptrFromHandle_Slice_Ptr_tui_Word(words)))
+
+}
 
 //export tui_Visualize
 func tui_Visualize(centralWord *C.char, centralWordVec CGoHandle, closestWords CGoHandle, closestWordDistances CGoHandle, closestWordVectors CGoHandle) *C.char {

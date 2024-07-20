@@ -1,8 +1,6 @@
 package tui
 
-import (
-	"fmt"
-)
+import "fmt"
 
 type Word struct {
 	name   string
@@ -53,7 +51,12 @@ func processPyData(centralWord string, centralWordVec []float32, closestWords []
 }
 
 func visualize(results *ResultSet) error {
-	return fmt.Errorf("Not yet implemented")
+	res := Plot(results.SimilarWords)
+	if res == "" {
+		return fmt.Errorf("Drew nothing")
+	}
+	fmt.Println(res)
+	return nil
 }
 
 func Visualize(centralWord string, centralWordVec []float32, closestWords []string, closestWordDistances []float32, closestWordVectors []float32) error {
