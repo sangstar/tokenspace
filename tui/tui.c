@@ -2325,13 +2325,13 @@ _wrap__tui_tui_Plot(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject
 {
     PyObject *py_retval;
     char *retval;
-    int64_t words;
-    const char *keywords[] = {"words", NULL};
+    int64_t set;
+    const char *keywords[] = {"set", NULL};
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &words)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &set)) {
         return NULL;
     }
-    retval = tui_Plot(words);
+    retval = tui_Plot(set);
     if (PyErr_Occurred()) {
         if (retval != NULL) free(retval);
         return NULL;
@@ -2492,7 +2492,7 @@ static PyMethodDef _tui_functions[] = {
     {(char *) "tui_ResultSet_Distances_Get", (PyCFunction) _wrap__tui_tui_ResultSet_Distances_Get, METH_KEYWORDS|METH_VARARGS, "tui_ResultSet_Distances_Get(handle)\n\ntype: handle: int64_t" },
     {(char *) "tui_ResultSet_Distances_Set", (PyCFunction) _wrap__tui_tui_ResultSet_Distances_Set, METH_KEYWORDS|METH_VARARGS, "tui_ResultSet_Distances_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
     {(char *) "tui_Word_CTor", (PyCFunction) _wrap__tui_tui_Word_CTor, METH_NOARGS, "tui_Word_CTor()\n\n" },
-    {(char *) "tui_Plot", (PyCFunction) _wrap__tui_tui_Plot, METH_KEYWORDS|METH_VARARGS, "tui_Plot(words)\n\ntype: words: int64_t" },
+    {(char *) "tui_Plot", (PyCFunction) _wrap__tui_tui_Plot, METH_KEYWORDS|METH_VARARGS, "tui_Plot(set)\n\ntype: set: int64_t" },
     {(char *) "tui_Visualize", (PyCFunction) _wrap__tui_tui_Visualize, METH_KEYWORDS|METH_VARARGS, "tui_Visualize(centralWord, centralWordVec, closestWords, closestWordDistances, closestWordVectors)\n\ntype: centralWord: char *\ntype: centralWordVec: int64_t\ntype: closestWords: int64_t\ntype: closestWordDistances: int64_t\ntype: closestWordVectors: int64_t" },
     {NULL, NULL, 0, NULL}
 };

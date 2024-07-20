@@ -1304,10 +1304,10 @@ func tui_Word_CTor() CGoHandle {
 // ---- Functions ---
 
 //export tui_Plot
-func tui_Plot(words CGoHandle) *C.char {
+func tui_Plot(set CGoHandle) *C.char {
 	_saved_thread := C.PyEval_SaveThread()
 	defer C.PyEval_RestoreThread(_saved_thread)
-	return C.CString(tui.Plot(deptrFromHandle_Slice_Ptr_tui_Word(words)))
+	return C.CString(tui.Plot(ptrFromHandle_Ptr_tui_ResultSet(set)))
 
 }
 

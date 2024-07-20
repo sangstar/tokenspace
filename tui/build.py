@@ -165,7 +165,7 @@ mod.add_function('tui_ResultSet_SimilarWords_Set', None, [param('int64_t', 'hand
 mod.add_function('tui_ResultSet_Distances_Get', retval('int64_t'), [param('int64_t', 'handle')])
 mod.add_function('tui_ResultSet_Distances_Set', None, [param('int64_t', 'handle'), param('int64_t', 'val')])
 mod.add_function('tui_Word_CTor', retval('int64_t'), [])
-add_checked_string_function(mod, 'tui_Plot', retval('char*'), [param('int64_t', 'words')])
+add_checked_string_function(mod, 'tui_Plot', retval('char*'), [param('int64_t', 'set')])
 add_checked_function(mod, 'tui_Visualize', retval('char*'), [param('char*', 'centralWord'), param('int64_t', 'centralWordVec'), param('int64_t', 'closestWords'), param('int64_t', 'closestWordDistances'), param('int64_t', 'closestWordVectors')])
 
 mod.generate(open('tui.c', 'w'))

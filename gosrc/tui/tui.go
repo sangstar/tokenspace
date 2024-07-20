@@ -51,7 +51,7 @@ func processPyData(centralWord string, centralWordVec []float32, closestWords []
 }
 
 func visualize(results *ResultSet) error {
-	res := Plot(results.SimilarWords)
+	res := Plot(results)
 	if res == "" {
 		return fmt.Errorf("Drew nothing")
 	}

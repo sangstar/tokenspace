@@ -272,9 +272,9 @@ class Word(go.GoClass):
 
 
 # ---- Functions ---
-def Plot(words):
-	"""Plot([]object words) str"""
-	return _tui.tui_Plot(words.handle)
+def Plot(set):
+	"""Plot(object set) str"""
+	return _tui.tui_Plot(set.handle)
 def Visualize(centralWord, centralWordVec, closestWords, closestWordDistances, closestWordVectors):
 	"""Visualize(str centralWord, []float centralWordVec, []str closestWords, []float closestWordDistances, []float closestWordVectors) str"""
 	return _tui.tui_Visualize(centralWord, centralWordVec.handle, closestWords.handle, closestWordDistances.handle, closestWordVectors.handle)

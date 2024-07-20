@@ -30,7 +30,6 @@ def get_top_n(token: str, n: int, compressed: np.ndarray, gensim_model: gensim.m
 
 
 model = api.load("glove-twitter-25")  # load glove vectors
-model.most_similar("cat")
 embedding_matrix = model.vectors
 
 embedding_array = np.ascontiguousarray(embedding_matrix)
@@ -47,7 +46,7 @@ result = svd.Compress(data, rows, cols, output_dim)
 numpy_array = np.array(result).reshape(rows, output_dim)
 
 
-top = get_top_n("hello", 20, numpy_array, model)
+top = get_top_n("tennis", 100, numpy_array, model)
 
 
 new_top = [

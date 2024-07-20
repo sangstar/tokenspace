@@ -2,7 +2,7 @@ package tui
 
 import (
 	"cmp"
-	"fmt"
+	"math"
 	"slices"
 )
 
@@ -35,22 +35,32 @@ and generate for that)
 
 */
 
-var windowPadding int = 5
-
-func Plot(words []*Word) string {
-
+func Plot(set *ResultSet) string {
+	words := set.SimilarWords
 	var xMax float32 = 0
 	var yMax float32 = 0
 
 	data := make([][]float32, len(words))
 	for i, d := range words {
-		if d.vector[0] > xMax {
-			xMax = d.vector[0]
+		d.vector[0] -= set.WordOfInterest.vector[0]
+		d.vector[1] -= set.WordOfInterest.vector[1]
+		if math.Abs(float64(d.vector[0])) > float64(xMax) {
+			xMax = float32(math.Abs(float64(d.vector[0])))
 		}
-		if d.vector[1] > yMax {
-			yMax = d.vector[1]
+		if math.Abs(float64(d.vector[1])) > float64(yMax) {
+			yMax = float32(math.Abs(float64(d.vector[1])))
 		}
 		data[i] = d.vector
+	}
+
+	// Go down line by line
+	xWindowSize := 30
+	yWindowSize := 10
+
+	// Normalize by
+	for _, d := range words {
+		d.vector[0] = float32(math.Round(float64((d.vector[0] / xMax) * float32(xWindowSize))))
+		d.vector[1] = float32(math.Round(float64((d.vector[1] / yMax) * float32(yWindowSize))))
 	}
 
 	// Sort points by length in y
@@ -60,98 +70,27 @@ func Plot(words []*Word) string {
 	}
 	slices.SortFunc(data, ySorter)
 
-	// Go down line by line. When y lines from origin (yWindow/2), plot it
-	yWindowSize := (int(yMax) + 1) + windowPadding
-	xWindowSize := (int(xMax) + 1) * windowPadding
-
 	graphic := ""
-	addYTick := func(yVal int) string {
-		toAdd := ""
-		for i := 0; i < xWindowSize; i++ {
-			toAdd = toAdd + " "
-			if i == (xWindowSize/2-1) && yVal != 0 {
-				toAdd = toAdd + "║"
+
+	for y := yWindowSize; y >= -yWindowSize; y-- {
+		line := ""
+		for x := -xWindowSize; x <= xWindowSize; x++ {
+			if y == 0 && x == 0 {
+				line += "┼"
 			}
-		}
-		return graphic + toAdd
-	}
-
-	addXAxis := func() string {
-		toAdd := ""
-		for i := 0; i < xWindowSize; i++ {
-			if i == (xWindowSize / 2) {
-				toAdd = toAdd + "╬"
-			} else {
-				toAdd = toAdd + "═"
-			}
-		}
-		return graphic + toAdd
-	}
-
-	var doNotPlotTick bool
-	for y := yWindowSize / 2; y > (-1 * yWindowSize / 2); y-- {
-		doNotPlotTick = false
-		if y == 0 {
-			graphic = addXAxis()
-		}
-		for _, d := range data {
-			if int(d[1]) == y {
-				// Time to plot a point
-				for x := -1 * xWindowSize / 2; x < xWindowSize/2; x++ {
-					// If at line of x = 0 (y-axis) and no point, draw the axis line now
-					if x == 0 && int(d[0]) != 0 {
-						graphic = graphic + "║"
-						doNotPlotTick = true
-					}
-					if int(d[0]) == x {
-						graphic += "█"
-						if x == 0 {
-							doNotPlotTick = true
-						}
-
-						// Ensures that if the next point is the y-axis that we still plot the tick
-						if x+1 == 0 {
-							doNotPlotTick = true
-							graphic += fmt.Sprintf("║token (%.1f, %.1f)", d[0], d[1])
-						} else {
-							graphic += fmt.Sprintf(" token (%.1f, %.1f)", d[0], d[1])
-						}
-
-					} else {
-						graphic += " "
-					}
+			for _, word := range words {
+				if int(word.vector[0]) == x && int(word.vector[1]) == y {
+					line += "|" + word.name + "|"
+					// graphic += fmt.Sprintf("¤ %s", word.name)
+					//graphic += fmt.Sprintf("¤ %s (%.1f, %.1f)", word.name, word.vector[0], word.vector[1])
 				}
 			}
+			line += " "
+
 		}
-		if !doNotPlotTick {
-			graphic = addYTick(y)
-		}
-		graphic += "\n"
+		line += "\n"
+		graphic += line
 
 	}
 	return graphic
-}
-
-func plot(windowSize int, data [][]float64) string {
-	var output string
-
-	yPointsUpperQuartile := windowSize / 4
-	yPointsLowerQuartile := windowSize / 4
-	for i := 0; i < yPointsUpperQuartile; i++ {
-		output += "\t" + "║" + "\n"
-	}
-	output += "<"
-	for i := 0; i < 3; i++ {
-		output += "═"
-	}
-	output += "╬"
-	for i := 0; i < windowSize; i++ {
-		output += "═"
-	}
-	output += ">\n"
-	for i := 0; i < yPointsLowerQuartile; i++ {
-		output += "\t" + "║" + "\n"
-	}
-	output += "\t" + "║" + "         ■ test"
-	return output
 }
