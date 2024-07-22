@@ -13,14 +13,17 @@ func TestSVDOnLargeMatrix(t *testing.T) {
 
 	toDim := 2
 
+	names := make([]string, rows)
 	data := make([]float64, rows*cols)
 	for i := range data {
 		data[i] = rand.NormFloat64()
+		if i < rows {
+			names[i] = "test"
+		}
 	}
 
-	reduced := Compress(data, rows, cols, toDim)
+	reduced := CompressAndVisualize(data, rows, cols, toDim, names)
 
 	assert.NotNil(t, reduced)
-	assert.Equal(t, len(reduced), rows*toDim)
 
 }

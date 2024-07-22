@@ -79,6 +79,10 @@ func Plot(set *ResultSet) string {
 			if y == 0 && x == 0 {
 				line += "┼"
 			}
+			// TODO: Investigate why model.most_similar words are not actually
+			//       closest to central word. Is this due to the disconnect between
+			//       The compressed 2D matrix and model.most_similar applying to the whole
+			//       matrix? Do I need to make my own most_similar function?
 			for _, word := range words {
 				if int(word.vector[0]) == x && int(word.vector[1]) == y {
 					line += fmt.Sprintf("(%s)", word.name)
