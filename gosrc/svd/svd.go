@@ -3,6 +3,8 @@ package svd
 import (
 	"fmt"
 	"gonum.org/v1/gonum/mat"
+	"math"
+	"sort"
 	"sync"
 )
 
@@ -15,8 +17,12 @@ type Word struct {
 }
 
 type CloseWord struct {
-	word  *Word
-	score float64
+	word         *Word
+	rankBefore   int
+	rankAfter    int
+	cosSimBefore float64
+	cosSimAfter  float64
+	score        float64
 }
 
 type ResultSet struct {
@@ -37,11 +43,10 @@ type Vectors struct {
 }
 
 type VecOpParams struct {
-	centralWord  *Word
-	words        []*Word
-	isCompressed bool
-	results      *ResultSet
-	wordChan     chan []*CloseWord
+	centralWord *Word
+	words       []*Word
+	results     *ResultSet
+	wordChan    chan []*CloseWord
 }
 
 type SVDResult struct {
@@ -109,7 +114,9 @@ func processPyData(svd *SVDResult) *ResultSet {
 		reshapedWordVecs[i] = &Word{
 			name:     names[i],
 			vector:   originalVecs[i : i+svd.OriginalData.Cols],
-			vector2D: svdVecs[i : i+svd.FlattenedCompressed.Cols]}
+			vector2D: svdVecs[i : i+svd.FlattenedCompressed.Cols],
+			idx:      i,
+		}
 	}
 
 	return &ResultSet{
@@ -169,75 +176,76 @@ func splitVectorizedOp(numWorkers int, jobParams *VecOpParams, by func(*sync.Wai
 		}
 	}
 
+	sort.Slice(resultData, func(i, j int) bool {
+		return resultData[i].cosSimBefore > resultData[j].cosSimBefore
+	})
+
+	for i, closeWord := range resultData {
+		closeWord.rankBefore = i
+	}
+
+	sort.Slice(resultData, func(i, j int) bool {
+		return resultData[i].cosSimAfter > resultData[j].cosSimAfter
+	})
+
+	numVecs := len(resultData)
+	getScore := func(close *CloseWord) float64 {
+		return (float64(numVecs-close.rankAfter) / float64(numVecs)) * 1 / (math.Abs(float64(close.rankBefore-close.rankAfter)) + 1)
+	}
+
+	for i, closeWord := range resultData {
+		closeWord.rankAfter = i
+		closeWord.score = getScore(closeWord)
+	}
+
+	sort.Slice(resultData, func(i, j int) bool {
+		return resultData[i].score > resultData[j].score
+	})
+
 	return resultData
 
 }
 
-func getSimilarities(wg *sync.WaitGroup, words []*Word, jobParams *VecOpParams) {
+func getAdjustedSimilarities(wg *sync.WaitGroup, words []*Word, jobParams *VecOpParams) {
 	defer wg.Done()
 
 	cosSim := func(a, b []float64) float64 {
 		vecA := mat.NewVecDense(len(a), a)
 		vecB := mat.NewVecDense(len(b), b)
-		return mat.Dot(vecA, vecB)
-	}
-
-	var centralWordVec []float64
-	var dim int
-
-	if jobParams.isCompressed {
-		centralWordVec = jobParams.centralWord.vector2D
-		dim = 2
-	} else {
-		centralWordVec = jobParams.centralWord.vector
-		dim = len(jobParams.centralWord.vector)
+		return mat.Dot(vecA, vecB) / (vecA.Norm(2) * vecB.Norm(2))
 	}
 
 	// TODO: Make score include the ranking equation from before,
 	//       not just cos sim, where it penalizes rank
 	//       differences before and after compression, and a bad rank
-	sims := make([]*CloseWord, len(words))
-	for i := 0; i < len(words)/dim; i++ {
-		if jobParams.isCompressed {
-			sims[i] = &CloseWord{
-				words[i],
-				cosSim(centralWordVec, words[i].vector2D),
-			}
-		} else {
-			sims[i] = &CloseWord{
-				words[i],
-				cosSim(centralWordVec, words[i].vector),
-			}
-		}
 
+	closeWords := make([]*CloseWord, len(words))
+	for i := 0; i < len(words); i++ {
+		cosSimBefore := cosSim(jobParams.centralWord.vector, words[i].vector)
+		cosSimAfter := cosSim(jobParams.centralWord.vector2D, words[i].vector2D)
+		closeWords[i] = &CloseWord{
+			word:         words[i],
+			cosSimBefore: cosSimBefore,
+			cosSimAfter:  cosSimAfter,
+		}
 	}
 
-	jobParams.wordChan <- sims
+	jobParams.wordChan <- closeWords
 
 	return
 }
 
 func getClosenessSet(centralWord *Word, results *ResultSet) *ClosenessSet {
-	flattenedJobParams := &VecOpParams{
-		centralWord:  centralWord,
-		words:        *results.words,
-		isCompressed: true,
-		results:      results,
-		wordChan:     nil,
-	}
-
-	originalDataJobParams := &VecOpParams{
-		centralWord:  centralWord,
-		words:        *results.words,
-		isCompressed: false,
-		results:      results,
-		wordChan:     nil,
+	JobParams := &VecOpParams{
+		centralWord: centralWord,
+		words:       *results.words,
+		results:     results,
+		wordChan:    nil,
 	}
 
 	numWorkers := 10
 
-	splitVectorizedOp(numWorkers, flattenedJobParams, getSimilarities)
-	splitVectorizedOp(numWorkers, originalDataJobParams, getSimilarities)
+	splitVectorizedOp(numWorkers, JobParams, getAdjustedSimilarities)
 
 	return &ClosenessSet{}
 }
