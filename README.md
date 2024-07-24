@@ -3,30 +3,29 @@ Visualize word2vec embeddings in a terminal window.
 
 ```
 Enter text (exit! to escape): football
-                     
-             (sports)        
-     (game)                
-                     
-             (soccer) (nba)  (tennis)     
-              (basketball)       
-        (games)             
-         (season)   (winning)   (baseball)  (championship)    
-              (hockey)      (boxing) 
-                     
-          ┼  (player)  (race) (teams)      
-               (rugby)      
-                     
-                     
+
+                   (warriors) (halftime) 
+                   (saints) (reds) 
+             (soccer) (nba) (nfl)   (tournament) (lions)  
+             (lead)   (tennis)  (division)(alabama)(bears)   
+              (basketball)(played) (tough)  (michigan)    
+             (college)  (competition)(major)  (career)    
+        (games) (season) (sport) (canada)    (baseball)(challenge)  (championship)(crowd)    
+            (winning)(performance)   (practice)      
+           (country)   (hockey)       
+      (year)    (second)           
+          ┼  (player)(spain) (race)(points)(biggest)  (champion)(teams)      
+         (america)            
+          (both) (won)          
+           (score)          
+         (match)            
           (league)           
-                     
-                     
-              (players)       
-                     
-                     
-             (olympics)    
+
 ```
 The symbol `┼` indicates the position of the central word,
-and words scattered around it represent its reduced 2D projection.
+and words scattered around it are the top `n` most similar
+words by cosine similarity, positioned according to
+their reduced 2D projection relative to the central word.
 
 
 This package reduces word2vec vectors (loaded from Gensim)
@@ -65,9 +64,9 @@ The available CLI args are:
 ```
 optional arguments:
   -h, --help            show this help message and exit
-  --model MODEL         The name of the Gensim model to load.
+  --model MODEL         The name of the Gensim model to load
   --output_dim OUTPUT_DIM
-                        The output dimension for SVD compression.
+                        The output dimension for SVD compression
   -n N, --n N           The number of most similar words to display
   -x X_WINDOW_SIZE, --x-window-size X_WINDOW_SIZE
                         The x window size for the TUI
@@ -80,6 +79,6 @@ optional arguments:
                         do not change much in terms of cosine similarity 
                         with the central word before and after singular
                         value decomposition. Usually best to keep the 
-                        value very low.
+                        value very low
 ```
 
