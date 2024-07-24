@@ -210,73 +210,6 @@ class Slice_mat_Matrix(go.GoClass):
 
 # ---- Structs ---
 
-# Python type for struct tui.CloseWord
-class CloseWord(go.GoClass):
-	""""""
-	def __init__(self, *args, **kwargs):
-		"""
-		handle=A Go-side object is always initialized with an explicit handle=arg
-		otherwise parameters can be unnamed in order of field names or named fields
-		in which case a new Go object is constructed first
-		"""
-		if len(kwargs) == 1 and 'handle' in kwargs:
-			self.handle = kwargs['handle']
-			_tui.IncRef(self.handle)
-		elif len(args) == 1 and isinstance(args[0], go.GoClass):
-			self.handle = args[0].handle
-			_tui.IncRef(self.handle)
-		else:
-			self.handle = _tui.tui_CloseWord_CTor()
-			_tui.IncRef(self.handle)
-			if  0 < len(args):
-				self.Word = args[0]
-			if "Word" in kwargs:
-				self.Word = kwargs["Word"]
-			if  5 < len(args):
-				self.Score = args[5]
-			if "Score" in kwargs:
-				self.Score = kwargs["Score"]
-	def __del__(self):
-		_tui.DecRef(self.handle)
-	def __str__(self):
-		pr = [(p, getattr(self, p)) for p in dir(self) if not p.startswith('__')]
-		sv = 'tui.CloseWord{'
-		first = True
-		for v in pr:
-			if callable(v[1]):
-				continue
-			if first:
-				first = False
-			else:
-				sv += ', '
-			sv += v[0] + '=' + str(v[1])
-		return sv + '}'
-	def __repr__(self):
-		pr = [(p, getattr(self, p)) for p in dir(self) if not p.startswith('__')]
-		sv = 'tui.CloseWord ( '
-		for v in pr:
-			if not callable(v[1]):
-				sv += v[0] + '=' + str(v[1]) + ', '
-		return sv + ')'
-	@property
-	def Word(self):
-		return Word(handle=_tui.tui_CloseWord_Word_Get(self.handle))
-	@Word.setter
-	def Word(self, value):
-		if isinstance(value, go.GoClass):
-			_tui.tui_CloseWord_Word_Set(self.handle, value.handle)
-		else:
-			raise TypeError("supplied argument type {t} is not a go.GoClass".format(t=type(value)))
-	@property
-	def Score(self):
-		return _tui.tui_CloseWord_Score_Get(self.handle)
-	@Score.setter
-	def Score(self, value):
-		if isinstance(value, go.GoClass):
-			_tui.tui_CloseWord_Score_Set(self.handle, value.handle)
-		else:
-			_tui.tui_CloseWord_Score_Set(self.handle, value)
-
 # Python type for struct tui.ClosenessSet
 class ClosenessSet(go.GoClass):
 	""""""
@@ -769,6 +702,73 @@ class Word(go.GoClass):
 			_tui.tui_Word_Idx_Set(self.handle, value.handle)
 		else:
 			_tui.tui_Word_Idx_Set(self.handle, value)
+
+# Python type for struct tui.CloseWord
+class CloseWord(go.GoClass):
+	""""""
+	def __init__(self, *args, **kwargs):
+		"""
+		handle=A Go-side object is always initialized with an explicit handle=arg
+		otherwise parameters can be unnamed in order of field names or named fields
+		in which case a new Go object is constructed first
+		"""
+		if len(kwargs) == 1 and 'handle' in kwargs:
+			self.handle = kwargs['handle']
+			_tui.IncRef(self.handle)
+		elif len(args) == 1 and isinstance(args[0], go.GoClass):
+			self.handle = args[0].handle
+			_tui.IncRef(self.handle)
+		else:
+			self.handle = _tui.tui_CloseWord_CTor()
+			_tui.IncRef(self.handle)
+			if  0 < len(args):
+				self.Word = args[0]
+			if "Word" in kwargs:
+				self.Word = kwargs["Word"]
+			if  5 < len(args):
+				self.Score = args[5]
+			if "Score" in kwargs:
+				self.Score = kwargs["Score"]
+	def __del__(self):
+		_tui.DecRef(self.handle)
+	def __str__(self):
+		pr = [(p, getattr(self, p)) for p in dir(self) if not p.startswith('__')]
+		sv = 'tui.CloseWord{'
+		first = True
+		for v in pr:
+			if callable(v[1]):
+				continue
+			if first:
+				first = False
+			else:
+				sv += ', '
+			sv += v[0] + '=' + str(v[1])
+		return sv + '}'
+	def __repr__(self):
+		pr = [(p, getattr(self, p)) for p in dir(self) if not p.startswith('__')]
+		sv = 'tui.CloseWord ( '
+		for v in pr:
+			if not callable(v[1]):
+				sv += v[0] + '=' + str(v[1]) + ', '
+		return sv + ')'
+	@property
+	def Word(self):
+		return Word(handle=_tui.tui_CloseWord_Word_Get(self.handle))
+	@Word.setter
+	def Word(self, value):
+		if isinstance(value, go.GoClass):
+			_tui.tui_CloseWord_Word_Set(self.handle, value.handle)
+		else:
+			raise TypeError("supplied argument type {t} is not a go.GoClass".format(t=type(value)))
+	@property
+	def Score(self):
+		return _tui.tui_CloseWord_Score_Get(self.handle)
+	@Score.setter
+	def Score(self, value):
+		if isinstance(value, go.GoClass):
+			_tui.tui_CloseWord_Score_Set(self.handle, value.handle)
+		else:
+			_tui.tui_CloseWord_Score_Set(self.handle, value)
 
 
 # ---- Slices ---

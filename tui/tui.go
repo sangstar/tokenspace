@@ -1545,37 +1545,6 @@ func handleFromPtr_tui_Word(p interface{}) CGoHandle {
 
 // ---- Structs ---
 
-// --- wrapping struct: tui.CloseWord ---
-//
-//export tui_CloseWord_CTor
-func tui_CloseWord_CTor() CGoHandle {
-	return CGoHandle(handleFromPtr_tui_CloseWord(&tui.CloseWord{}))
-}
-
-//export tui_CloseWord_Word_Get
-func tui_CloseWord_Word_Get(handle CGoHandle) CGoHandle {
-	op := ptrFromHandle_tui_CloseWord(handle)
-	return handleFromPtr_Ptr_tui_Word(op.Word)
-}
-
-//export tui_CloseWord_Word_Set
-func tui_CloseWord_Word_Set(handle CGoHandle, val CGoHandle) {
-	op := ptrFromHandle_tui_CloseWord(handle)
-	op.Word = ptrFromHandle_Ptr_tui_Word(val)
-}
-
-//export tui_CloseWord_Score_Get
-func tui_CloseWord_Score_Get(handle CGoHandle) C.double {
-	op := ptrFromHandle_tui_CloseWord(handle)
-	return C.double(op.Score)
-}
-
-//export tui_CloseWord_Score_Set
-func tui_CloseWord_Score_Set(handle CGoHandle, val C.double) {
-	op := ptrFromHandle_tui_CloseWord(handle)
-	op.Score = float64(val)
-}
-
 // --- wrapping struct: tui.ClosenessSet ---
 //
 //export tui_ClosenessSet_CTor
@@ -1844,6 +1813,37 @@ func tui_Word_Idx_Get(handle CGoHandle) C.longlong {
 func tui_Word_Idx_Set(handle CGoHandle, val C.longlong) {
 	op := ptrFromHandle_tui_Word(handle)
 	op.Idx = int(val)
+}
+
+// --- wrapping struct: tui.CloseWord ---
+//
+//export tui_CloseWord_CTor
+func tui_CloseWord_CTor() CGoHandle {
+	return CGoHandle(handleFromPtr_tui_CloseWord(&tui.CloseWord{}))
+}
+
+//export tui_CloseWord_Word_Get
+func tui_CloseWord_Word_Get(handle CGoHandle) CGoHandle {
+	op := ptrFromHandle_tui_CloseWord(handle)
+	return handleFromPtr_Ptr_tui_Word(op.Word)
+}
+
+//export tui_CloseWord_Word_Set
+func tui_CloseWord_Word_Set(handle CGoHandle, val CGoHandle) {
+	op := ptrFromHandle_tui_CloseWord(handle)
+	op.Word = ptrFromHandle_Ptr_tui_Word(val)
+}
+
+//export tui_CloseWord_Score_Get
+func tui_CloseWord_Score_Get(handle CGoHandle) C.double {
+	op := ptrFromHandle_tui_CloseWord(handle)
+	return C.double(op.Score)
+}
+
+//export tui_CloseWord_Score_Set
+func tui_CloseWord_Score_Set(handle CGoHandle, val C.double) {
+	op := ptrFromHandle_tui_CloseWord(handle)
+	op.Score = float64(val)
 }
 
 // ---- Slices ---

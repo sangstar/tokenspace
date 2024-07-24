@@ -1,7 +1,7 @@
 # wordspace
 Visualize word2vec embeddings in a terminal window.
 
-```
+```bash
 Enter text (exit! to escape): football
 
                    (warriors) (halftime) 
@@ -19,8 +19,7 @@ Enter text (exit! to escape): football
           (both) (won)          
            (score)          
          (match)            
-          (league)           
-
+          (league)    
 ```
 The symbol `┼` indicates the position of the central word,
 and words scattered around it are the top `n` most similar

@@ -306,14 +306,6 @@ extern long long Slice_mat_Matrix_subslice(long long handle, GoInt _st, GoInt _e
 extern void Slice_mat_Matrix_set(long long handle, GoInt _idx, long long _vl);
 extern void Slice_mat_Matrix_append(long long handle, long long _vl);
 
-// --- wrapping struct: tui.CloseWord ---
-//
-extern long long tui_CloseWord_CTor();
-extern long long tui_CloseWord_Word_Get(long long handle);
-extern void tui_CloseWord_Word_Set(long long handle, long long val);
-extern double tui_CloseWord_Score_Get(long long handle);
-extern void tui_CloseWord_Score_Set(long long handle, double val);
-
 // --- wrapping struct: tui.ClosenessSet ---
 //
 extern long long tui_ClosenessSet_CTor();
@@ -375,6 +367,14 @@ extern long long tui_Word_Vector2D_Get(long long handle);
 extern void tui_Word_Vector2D_Set(long long handle, long long val);
 extern long long tui_Word_Idx_Get(long long handle);
 extern void tui_Word_Idx_Set(long long handle, long long val);
+
+// --- wrapping struct: tui.CloseWord ---
+//
+extern long long tui_CloseWord_CTor();
+extern long long tui_CloseWord_Word_Get(long long handle);
+extern void tui_CloseWord_Word_Set(long long handle, long long val);
+extern double tui_CloseWord_Score_Get(long long handle);
+extern void tui_CloseWord_Score_Set(long long handle, double val);
 extern long long tui_DenseToVectors(long long m);
 extern char* tui_CompressAndVisualize(long long N, long long WindowSizeX, long long WindowSizeY, long long NumWorkers, double Alpha, long long List, long long r, long long c, long long outputDim, long long Names);
 extern char* tui_Plot(long long xWindowSize, long long yWindowSize, long long closeSet);
