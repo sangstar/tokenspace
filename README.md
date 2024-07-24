@@ -1,7 +1,7 @@
 # wordspace
 Visualize word2vec embeddings in a terminal window.
 
-```bash
+```
 Enter text (exit! to escape): football
 
                    (warriors) (halftime) 
