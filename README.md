@@ -46,7 +46,7 @@ important metric for generating quality close words after
 reduction, and the affect of performance drift is made tuneable
 and recommended to be kept small.
 
-### Installation
+### Getting Started
 To run, make sure Python and Go runtimes are installed on your machine. Then, install
 the package from source.
 
