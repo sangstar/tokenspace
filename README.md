@@ -25,6 +25,9 @@ Enter text (exit! to escape): football
                      
              (olympics)    
 ```
+The symbol `┼` indicates the position of the central word,
+and words scattered around it represent its reduced 2D projection.
+
 
 This package reduces word2vec vectors (loaded from Gensim)
 to two dimensions by getting the singular value decomposition
