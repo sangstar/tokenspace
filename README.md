@@ -62,9 +62,7 @@ can be regenerated for any new word by inputting it in the terminal.
 
 The available CLI args are:
 
-```bash
-Compress and visualize word embeddings using SVD.
-
+```
 optional arguments:
   -h, --help            show this help message and exit
   --model MODEL         The name of the Gensim model to load.
@@ -78,7 +76,10 @@ optional arguments:
   -w NUM_WORKERS, --num-workers NUM_WORKERS
                         The number of workers to use
   -a ALPHA, --alpha ALPHA
-                        A scalar to influence the impact of words that do not change much in terms of cosine similarity with the central word before and after singular
-                        value decomposition. Usually best to keep the value very low.
+                        A scalar to influence the impact of words that 
+                        do not change much in terms of cosine similarity 
+                        with the central word before and after singular
+                        value decomposition. Usually best to keep the 
+                        value very low.
 ```
 
