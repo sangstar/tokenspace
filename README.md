@@ -14,13 +14,14 @@ Enter text (exit! to escape): football
             (winning)(performance)   (practice)      
            (country)   (hockey)       
       (year)    (second)           
-          <span style="color:blue;">┼</span>  (player)(spain) (race)(points)(biggest)  (champion)(teams)      
+          ┼  (player)(spain) (race)(points)(biggest)  (champion)(teams)      
          (america)            
           (both) (won)          
            (score)          
          (match)            
           (league)    
 ```
+
 The symbol `┼` indicates the position of the central word,
 and words scattered around it are the top `n` most similar
 words by cosine similarity, positioned according to
