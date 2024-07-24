@@ -78,7 +78,7 @@ optional arguments:
   -w NUM_WORKERS, --num-workers NUM_WORKERS
                         The number of workers to use
   -a ALPHA, --alpha ALPHA
-                        A scalar to influence the impact of words that don't change much in terms of cosine similarity with the central word before and after singular
+                        A scalar to influence the impact of words that do not change much in terms of cosine similarity with the central word before and after singular
                         value decomposition. Usually best to keep the value very low.
 ```
 
