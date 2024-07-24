@@ -34,7 +34,7 @@ if __name__ == "__main__":
     parser.add_argument("-x", "--x-window-size", type=int, default=10, help="The x window size for the TUI")
     parser.add_argument("-y", "--y-window-size", type=int, default=10, help="The y window size for the TUI")
     parser.add_argument("-w", "--num-workers", type=int, default=10, help="The number of workers to use")
-    parser.add_argument("-a", "--alpha", type=float, default=0.05, help="A scalar to influence the impact of words that"
+    parser.add_argument("-a", "--alpha", type=float, default=0.05, help="A scalar to influence the impact of words that "
                                                                         "don't change much in terms of cosine "
                                                                         "similarity with the central word before and "
                                                                         "after singular value decomposition. "
