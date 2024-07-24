@@ -49,6 +49,7 @@ the package from source.
 ```bash
 git clone https://github.com/sangstar/wordspace.git
 cd wordspace
+pip install -r requirements.txt
 python -m wordspace -n 20 -x 10 -y 10 -a 0.05
 ```
 
