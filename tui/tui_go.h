@@ -288,32 +288,97 @@ extern long long Slice_uint8_subslice(long long handle, GoInt _st, GoInt _ed);
 extern void Slice_uint8_set(long long handle, GoInt _idx, unsigned char _vl);
 extern void Slice_uint8_append(long long handle, unsigned char _vl);
 
-// --- wrapping slice: []*tui.Word ---
+// --- wrapping slice: []*tui.CloseWord ---
 //
-extern long long Slice_Ptr_tui_Word_CTor();
-extern GoInt Slice_Ptr_tui_Word_len(long long handle);
-extern long long Slice_Ptr_tui_Word_elem(long long handle, GoInt _idx);
-extern long long Slice_Ptr_tui_Word_subslice(long long handle, GoInt _st, GoInt _ed);
-extern void Slice_Ptr_tui_Word_set(long long handle, GoInt _idx, long long _vl);
-extern void Slice_Ptr_tui_Word_append(long long handle, long long _vl);
+extern long long Slice_Ptr_tui_CloseWord_CTor();
+extern GoInt Slice_Ptr_tui_CloseWord_len(long long handle);
+extern long long Slice_Ptr_tui_CloseWord_elem(long long handle, GoInt _idx);
+extern long long Slice_Ptr_tui_CloseWord_subslice(long long handle, GoInt _st, GoInt _ed);
+extern void Slice_Ptr_tui_CloseWord_set(long long handle, GoInt _idx, long long _vl);
+extern void Slice_Ptr_tui_CloseWord_append(long long handle, long long _vl);
+
+// --- wrapping slice: []mat.Matrix ---
+//
+extern long long Slice_mat_Matrix_CTor();
+extern GoInt Slice_mat_Matrix_len(long long handle);
+extern long long Slice_mat_Matrix_elem(long long handle, GoInt _idx);
+extern long long Slice_mat_Matrix_subslice(long long handle, GoInt _st, GoInt _ed);
+extern void Slice_mat_Matrix_set(long long handle, GoInt _idx, long long _vl);
+extern void Slice_mat_Matrix_append(long long handle, long long _vl);
+
+// --- wrapping struct: tui.CloseWord ---
+//
+extern long long tui_CloseWord_CTor();
+extern long long tui_CloseWord_Word_Get(long long handle);
+extern void tui_CloseWord_Word_Set(long long handle, long long val);
+extern double tui_CloseWord_Score_Get(long long handle);
+extern void tui_CloseWord_Score_Set(long long handle, double val);
+
+// --- wrapping struct: tui.ClosenessSet ---
+//
+extern long long tui_ClosenessSet_CTor();
+extern long long tui_ClosenessSet_CentralWord_Get(long long handle);
+extern void tui_ClosenessSet_CentralWord_Set(long long handle, long long val);
+extern long long tui_ClosenessSet_CloseWords_Get(long long handle);
+extern void tui_ClosenessSet_CloseWords_Set(long long handle, long long val);
+
+// --- wrapping struct: tui.Result ---
+//
+extern long long tui_Result_CTor();
+extern long long tui_Result_FlattenedCompressed_Get(long long handle);
+extern void tui_Result_FlattenedCompressed_Set(long long handle, long long val);
+extern long long tui_Result_OriginalData_Get(long long handle);
+extern void tui_Result_OriginalData_Set(long long handle, long long val);
+extern long long tui_Result_Names_Get(long long handle);
+extern void tui_Result_Names_Set(long long handle, long long val);
+extern long long tui_Result_OutputDim_Get(long long handle);
+extern void tui_Result_OutputDim_Set(long long handle, long long val);
+extern long long tui_Result_N_Get(long long handle);
+extern void tui_Result_N_Set(long long handle, long long val);
+extern long long tui_Result_WindowSizeX_Get(long long handle);
+extern void tui_Result_WindowSizeX_Set(long long handle, long long val);
+extern long long tui_Result_WindowSizeY_Get(long long handle);
+extern void tui_Result_WindowSizeY_Set(long long handle, long long val);
+extern double tui_Result_Alpha_Get(long long handle);
+extern void tui_Result_Alpha_Set(long long handle, double val);
+extern long long tui_Result_NumWorkers_Get(long long handle);
+extern void tui_Result_NumWorkers_Set(long long handle, long long val);
 
 // --- wrapping struct: tui.ResultSet ---
 //
 extern long long tui_ResultSet_CTor();
-extern long long tui_ResultSet_WordOfInterest_Get(long long handle);
-extern void tui_ResultSet_WordOfInterest_Set(long long handle, long long val);
-extern long long tui_ResultSet_VectorDim_Get(long long handle);
-extern void tui_ResultSet_VectorDim_Set(long long handle, long long val);
-extern long long tui_ResultSet_SimilarWords_Get(long long handle);
-extern void tui_ResultSet_SimilarWords_Set(long long handle, long long val);
-extern long long tui_ResultSet_Distances_Get(long long handle);
-extern void tui_ResultSet_Distances_Set(long long handle, long long val);
+
+// --- wrapping struct: tui.VecOpParams ---
+//
+extern long long tui_VecOpParams_CTor();
+
+// --- wrapping struct: tui.Vectors ---
+//
+extern long long tui_Vectors_CTor();
+extern long long tui_Vectors_Data_Get(long long handle);
+extern void tui_Vectors_Data_Set(long long handle, long long val);
+extern long long tui_Vectors_Rows_Get(long long handle);
+extern void tui_Vectors_Rows_Set(long long handle, long long val);
+extern long long tui_Vectors_Cols_Get(long long handle);
+extern void tui_Vectors_Cols_Set(long long handle, long long val);
 
 // --- wrapping struct: tui.Word ---
 //
 extern long long tui_Word_CTor();
-extern char* tui_Plot(long long set);
-extern char* tui_Visualize(char* centralWord, long long centralWordVec, long long closestWords, long long closestWordDistances, long long closestWordVectors);
+extern char* tui_Word_Name_Get(long long handle);
+extern void tui_Word_Name_Set(long long handle, char* val);
+extern long long tui_Word_Dim_Get(long long handle);
+extern void tui_Word_Dim_Set(long long handle, long long val);
+extern long long tui_Word_Vector_Get(long long handle);
+extern void tui_Word_Vector_Set(long long handle, long long val);
+extern long long tui_Word_Vector2D_Get(long long handle);
+extern void tui_Word_Vector2D_Set(long long handle, long long val);
+extern long long tui_Word_Idx_Get(long long handle);
+extern void tui_Word_Idx_Set(long long handle, long long val);
+extern long long tui_DenseToVectors(long long m);
+extern char* tui_CompressAndVisualize(long long N, long long WindowSizeX, long long WindowSizeY, long long NumWorkers, double Alpha, long long List, long long r, long long c, long long outputDim, long long Names);
+extern char* tui_Plot(long long xWindowSize, long long yWindowSize, long long closeSet);
+extern char* tui_Visualize(long long res);
 
 #ifdef __cplusplus
 }

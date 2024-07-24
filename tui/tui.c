@@ -2038,20 +2038,20 @@ PyObject * _wrap__tui_Slice_uint8_append(PyObject * PYBINDGEN_UNUSED(dummy), PyO
 
 
 PyObject *
-_wrap__tui_Slice_Ptr_tui_Word_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs))
+_wrap__tui_Slice_Ptr_tui_CloseWord_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs))
 {
     PyObject *py_retval;
     int64_t retval;
 
-    retval = Slice_Ptr_tui_Word_CTor();
+    retval = Slice_Ptr_tui_CloseWord_CTor();
     py_retval = Py_BuildValue((char *) "L", retval);
     return py_retval;
 }
-PyObject * _wrap__tui_Slice_Ptr_tui_Word_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs));
+PyObject * _wrap__tui_Slice_Ptr_tui_CloseWord_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs));
 
 
 PyObject *
-_wrap__tui_Slice_Ptr_tui_Word_len(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__tui_Slice_Ptr_tui_CloseWord_len(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
     int retval;
@@ -2061,15 +2061,15 @@ _wrap__tui_Slice_Ptr_tui_Word_len(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
         return NULL;
     }
-    retval = Slice_Ptr_tui_Word_len(handle);
+    retval = Slice_Ptr_tui_CloseWord_len(handle);
     py_retval = Py_BuildValue((char *) "i", retval);
     return py_retval;
 }
-PyObject * _wrap__tui_Slice_Ptr_tui_Word_len(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__tui_Slice_Ptr_tui_CloseWord_len(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
-_wrap__tui_Slice_Ptr_tui_Word_elem(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__tui_Slice_Ptr_tui_CloseWord_elem(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
     int64_t retval;
@@ -2080,15 +2080,15 @@ _wrap__tui_Slice_Ptr_tui_Word_elem(PyObject * PYBINDGEN_UNUSED(dummy), PyObject 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "Li", (char **) keywords, &handle, &idx)) {
         return NULL;
     }
-    retval = Slice_Ptr_tui_Word_elem(handle, idx);
+    retval = Slice_Ptr_tui_CloseWord_elem(handle, idx);
     py_retval = Py_BuildValue((char *) "L", retval);
     return py_retval;
 }
-PyObject * _wrap__tui_Slice_Ptr_tui_Word_elem(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__tui_Slice_Ptr_tui_CloseWord_elem(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
-_wrap__tui_Slice_Ptr_tui_Word_subslice(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__tui_Slice_Ptr_tui_CloseWord_subslice(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
     int64_t retval;
@@ -2100,15 +2100,15 @@ _wrap__tui_Slice_Ptr_tui_Word_subslice(PyObject * PYBINDGEN_UNUSED(dummy), PyObj
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "Lii", (char **) keywords, &handle, &st, &ed)) {
         return NULL;
     }
-    retval = Slice_Ptr_tui_Word_subslice(handle, st, ed);
+    retval = Slice_Ptr_tui_CloseWord_subslice(handle, st, ed);
     py_retval = Py_BuildValue((char *) "L", retval);
     return py_retval;
 }
-PyObject * _wrap__tui_Slice_Ptr_tui_Word_subslice(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__tui_Slice_Ptr_tui_CloseWord_subslice(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
-_wrap__tui_Slice_Ptr_tui_Word_set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__tui_Slice_Ptr_tui_CloseWord_set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
     int64_t handle;
@@ -2119,16 +2119,16 @@ _wrap__tui_Slice_Ptr_tui_Word_set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LiL", (char **) keywords, &handle, &idx, &value)) {
         return NULL;
     }
-    Slice_Ptr_tui_Word_set(handle, idx, value);
+    Slice_Ptr_tui_CloseWord_set(handle, idx, value);
     Py_INCREF(Py_None);
     py_retval = Py_None;
     return py_retval;
 }
-PyObject * _wrap__tui_Slice_Ptr_tui_Word_set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__tui_Slice_Ptr_tui_CloseWord_set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
-_wrap__tui_Slice_Ptr_tui_Word_append(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__tui_Slice_Ptr_tui_CloseWord_append(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
     int64_t handle;
@@ -2138,12 +2138,641 @@ _wrap__tui_Slice_Ptr_tui_Word_append(PyObject * PYBINDGEN_UNUSED(dummy), PyObjec
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &value)) {
         return NULL;
     }
-    Slice_Ptr_tui_Word_append(handle, value);
+    Slice_Ptr_tui_CloseWord_append(handle, value);
     Py_INCREF(Py_None);
     py_retval = Py_None;
     return py_retval;
 }
-PyObject * _wrap__tui_Slice_Ptr_tui_Word_append(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__tui_Slice_Ptr_tui_CloseWord_append(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_Slice_mat_Matrix_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs))
+{
+    PyObject *py_retval;
+    int64_t retval;
+
+    retval = Slice_mat_Matrix_CTor();
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_Slice_mat_Matrix_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs));
+
+
+PyObject *
+_wrap__tui_Slice_mat_Matrix_len(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = Slice_mat_Matrix_len(handle);
+    py_retval = Py_BuildValue((char *) "i", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_Slice_mat_Matrix_len(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_Slice_mat_Matrix_elem(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    int idx;
+    const char *keywords[] = {"handle", "idx", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "Li", (char **) keywords, &handle, &idx)) {
+        return NULL;
+    }
+    retval = Slice_mat_Matrix_elem(handle, idx);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_Slice_mat_Matrix_elem(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_Slice_mat_Matrix_subslice(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    int st;
+    int ed;
+    const char *keywords[] = {"handle", "st", "ed", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "Lii", (char **) keywords, &handle, &st, &ed)) {
+        return NULL;
+    }
+    retval = Slice_mat_Matrix_subslice(handle, st, ed);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_Slice_mat_Matrix_subslice(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_Slice_mat_Matrix_set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int idx;
+    int64_t value;
+    const char *keywords[] = {"handle", "idx", "value", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LiL", (char **) keywords, &handle, &idx, &value)) {
+        return NULL;
+    }
+    Slice_mat_Matrix_set(handle, idx, value);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_Slice_mat_Matrix_set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_Slice_mat_Matrix_append(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t value;
+    const char *keywords[] = {"handle", "value", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &value)) {
+        return NULL;
+    }
+    Slice_mat_Matrix_append(handle, value);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_Slice_mat_Matrix_append(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_CloseWord_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs))
+{
+    PyObject *py_retval;
+    int64_t retval;
+
+    retval = tui_CloseWord_CTor();
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_CloseWord_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs));
+
+
+PyObject *
+_wrap__tui_tui_CloseWord_Word_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_CloseWord_Word_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_CloseWord_Word_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_CloseWord_Word_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_CloseWord_Word_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_CloseWord_Word_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_CloseWord_Score_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    double retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_CloseWord_Score_Get(handle);
+    py_retval = Py_BuildValue((char *) "d", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_CloseWord_Score_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_CloseWord_Score_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    double val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "Ld", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_CloseWord_Score_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_CloseWord_Score_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_ClosenessSet_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs))
+{
+    PyObject *py_retval;
+    int64_t retval;
+
+    retval = tui_ClosenessSet_CTor();
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_ClosenessSet_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs));
+
+
+PyObject *
+_wrap__tui_tui_ClosenessSet_CentralWord_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_ClosenessSet_CentralWord_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_ClosenessSet_CentralWord_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_ClosenessSet_CentralWord_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_ClosenessSet_CentralWord_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_ClosenessSet_CentralWord_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_ClosenessSet_CloseWords_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_ClosenessSet_CloseWords_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_ClosenessSet_CloseWords_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_ClosenessSet_CloseWords_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_ClosenessSet_CloseWords_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_ClosenessSet_CloseWords_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs))
+{
+    PyObject *py_retval;
+    int64_t retval;
+
+    retval = tui_Result_CTor();
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs));
+
+
+PyObject *
+_wrap__tui_tui_Result_FlattenedCompressed_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Result_FlattenedCompressed_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_FlattenedCompressed_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_FlattenedCompressed_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Result_FlattenedCompressed_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_FlattenedCompressed_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_OriginalData_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Result_OriginalData_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_OriginalData_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_OriginalData_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Result_OriginalData_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_OriginalData_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_Names_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Result_Names_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_Names_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_Names_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Result_Names_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_Names_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_OutputDim_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Result_OutputDim_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_OutputDim_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_OutputDim_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Result_OutputDim_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_OutputDim_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_N_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Result_N_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_N_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_N_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Result_N_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_N_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_WindowSizeX_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Result_WindowSizeX_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_WindowSizeX_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_WindowSizeX_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Result_WindowSizeX_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_WindowSizeX_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_WindowSizeY_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Result_WindowSizeY_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_WindowSizeY_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_WindowSizeY_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Result_WindowSizeY_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_WindowSizeY_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_Alpha_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    double retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Result_Alpha_Get(handle);
+    py_retval = Py_BuildValue((char *) "d", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_Alpha_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_Alpha_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    double val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "Ld", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Result_Alpha_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_Alpha_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_NumWorkers_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Result_NumWorkers_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_NumWorkers_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Result_NumWorkers_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Result_NumWorkers_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Result_NumWorkers_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
@@ -2160,7 +2789,33 @@ PyObject * _wrap__tui_tui_ResultSet_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyOb
 
 
 PyObject *
-_wrap__tui_tui_ResultSet_WordOfInterest_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__tui_tui_VecOpParams_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs))
+{
+    PyObject *py_retval;
+    int64_t retval;
+
+    retval = tui_VecOpParams_CTor();
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_VecOpParams_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs));
+
+
+PyObject *
+_wrap__tui_tui_Vectors_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs))
+{
+    PyObject *py_retval;
+    int64_t retval;
+
+    retval = tui_Vectors_CTor();
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Vectors_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs));
+
+
+PyObject *
+_wrap__tui_tui_Vectors_Data_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
     int64_t retval;
@@ -2170,15 +2825,15 @@ _wrap__tui_tui_ResultSet_WordOfInterest_Get(PyObject * PYBINDGEN_UNUSED(dummy), 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
         return NULL;
     }
-    retval = tui_ResultSet_WordOfInterest_Get(handle);
+    retval = tui_Vectors_Data_Get(handle);
     py_retval = Py_BuildValue((char *) "L", retval);
     return py_retval;
 }
-PyObject * _wrap__tui_tui_ResultSet_WordOfInterest_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__tui_tui_Vectors_Data_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
-_wrap__tui_tui_ResultSet_WordOfInterest_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__tui_tui_Vectors_Data_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
     int64_t handle;
@@ -2188,16 +2843,16 @@ _wrap__tui_tui_ResultSet_WordOfInterest_Set(PyObject * PYBINDGEN_UNUSED(dummy), 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
         return NULL;
     }
-    tui_ResultSet_WordOfInterest_Set(handle, val);
+    tui_Vectors_Data_Set(handle, val);
     Py_INCREF(Py_None);
     py_retval = Py_None;
     return py_retval;
 }
-PyObject * _wrap__tui_tui_ResultSet_WordOfInterest_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__tui_tui_Vectors_Data_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
-_wrap__tui_tui_ResultSet_VectorDim_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__tui_tui_Vectors_Rows_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
     int64_t retval;
@@ -2207,15 +2862,15 @@ _wrap__tui_tui_ResultSet_VectorDim_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObj
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
         return NULL;
     }
-    retval = tui_ResultSet_VectorDim_Get(handle);
+    retval = tui_Vectors_Rows_Get(handle);
     py_retval = Py_BuildValue((char *) "L", retval);
     return py_retval;
 }
-PyObject * _wrap__tui_tui_ResultSet_VectorDim_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__tui_tui_Vectors_Rows_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
-_wrap__tui_tui_ResultSet_VectorDim_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__tui_tui_Vectors_Rows_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
     int64_t handle;
@@ -2225,16 +2880,16 @@ _wrap__tui_tui_ResultSet_VectorDim_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObj
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
         return NULL;
     }
-    tui_ResultSet_VectorDim_Set(handle, val);
+    tui_Vectors_Rows_Set(handle, val);
     Py_INCREF(Py_None);
     py_retval = Py_None;
     return py_retval;
 }
-PyObject * _wrap__tui_tui_ResultSet_VectorDim_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__tui_tui_Vectors_Rows_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
-_wrap__tui_tui_ResultSet_SimilarWords_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__tui_tui_Vectors_Cols_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
     int64_t retval;
@@ -2244,15 +2899,15 @@ _wrap__tui_tui_ResultSet_SimilarWords_Get(PyObject * PYBINDGEN_UNUSED(dummy), Py
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
         return NULL;
     }
-    retval = tui_ResultSet_SimilarWords_Get(handle);
+    retval = tui_Vectors_Cols_Get(handle);
     py_retval = Py_BuildValue((char *) "L", retval);
     return py_retval;
 }
-PyObject * _wrap__tui_tui_ResultSet_SimilarWords_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__tui_tui_Vectors_Cols_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
-_wrap__tui_tui_ResultSet_SimilarWords_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+_wrap__tui_tui_Vectors_Cols_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
     int64_t handle;
@@ -2262,49 +2917,12 @@ _wrap__tui_tui_ResultSet_SimilarWords_Set(PyObject * PYBINDGEN_UNUSED(dummy), Py
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
         return NULL;
     }
-    tui_ResultSet_SimilarWords_Set(handle, val);
+    tui_Vectors_Cols_Set(handle, val);
     Py_INCREF(Py_None);
     py_retval = Py_None;
     return py_retval;
 }
-PyObject * _wrap__tui_tui_ResultSet_SimilarWords_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
-
-
-PyObject *
-_wrap__tui_tui_ResultSet_Distances_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
-{
-    PyObject *py_retval;
-    int64_t retval;
-    int64_t handle;
-    const char *keywords[] = {"handle", NULL};
-
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
-        return NULL;
-    }
-    retval = tui_ResultSet_Distances_Get(handle);
-    py_retval = Py_BuildValue((char *) "L", retval);
-    return py_retval;
-}
-PyObject * _wrap__tui_tui_ResultSet_Distances_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
-
-
-PyObject *
-_wrap__tui_tui_ResultSet_Distances_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
-{
-    PyObject *py_retval;
-    int64_t handle;
-    int64_t val;
-    const char *keywords[] = {"handle", "val", NULL};
-
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
-        return NULL;
-    }
-    tui_ResultSet_Distances_Set(handle, val);
-    Py_INCREF(Py_None);
-    py_retval = Py_None;
-    return py_retval;
-}
-PyObject * _wrap__tui_tui_ResultSet_Distances_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+PyObject * _wrap__tui_tui_Vectors_Cols_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 
 PyObject *
@@ -2321,17 +2939,255 @@ PyObject * _wrap__tui_tui_Word_CTor(PyObject *PYBINDGEN_UNUSED(_args), PyObject 
 
 
 PyObject *
+_wrap__tui_tui_Word_Name_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    char *retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Word_Name_Get(handle);
+    py_retval = Py_BuildValue((char *) "s", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Word_Name_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Word_Name_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    char *val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "Ls", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Word_Name_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Word_Name_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Word_Dim_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Word_Dim_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Word_Dim_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Word_Dim_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Word_Dim_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Word_Dim_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Word_Vector_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Word_Vector_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Word_Vector_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Word_Vector_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Word_Vector_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Word_Vector_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Word_Vector2D_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Word_Vector2D_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Word_Vector2D_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Word_Vector2D_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Word_Vector2D_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Word_Vector2D_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Word_Idx_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t handle;
+    const char *keywords[] = {"handle", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &handle)) {
+        return NULL;
+    }
+    retval = tui_Word_Idx_Get(handle);
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Word_Idx_Get(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_Word_Idx_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t handle;
+    int64_t val;
+    const char *keywords[] = {"handle", "val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LL", (char **) keywords, &handle, &val)) {
+        return NULL;
+    }
+    tui_Word_Idx_Set(handle, val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_Word_Idx_Set(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_DenseToVectors(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t retval;
+    int64_t m;
+    const char *keywords[] = {"m", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &m)) {
+        return NULL;
+    }
+    retval = tui_DenseToVectors(m);
+    if (PyErr_Occurred()) {
+        return NULL;
+    }
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_DenseToVectors(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_CompressAndVisualize(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    char *retval;
+    int64_t N;
+    int64_t WindowSizeX;
+    int64_t WindowSizeY;
+    int64_t NumWorkers;
+    double Alpha;
+    int64_t List;
+    int64_t r;
+    int64_t c;
+    int64_t outputDim;
+    int64_t Names;
+    const char *keywords[] = {"N", "WindowSizeX", "WindowSizeY", "NumWorkers", "Alpha", "List", "r", "c", "outputDim", "Names", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LLLLdLLLLL", (char **) keywords, &N, &WindowSizeX, &WindowSizeY, &NumWorkers, &Alpha, &List, &r, &c, &outputDim, &Names)) {
+        return NULL;
+    }
+    retval = tui_CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List, r, c, outputDim, Names);
+    if (PyErr_Occurred()) {
+        return NULL;
+    }
+    py_retval = Py_BuildValue((char *) "s", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_CompressAndVisualize(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
 _wrap__tui_tui_Plot(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
     char *retval;
-    int64_t set;
-    const char *keywords[] = {"set", NULL};
+    int64_t xWindowSize;
+    int64_t yWindowSize;
+    int64_t closeSet;
+    const char *keywords[] = {"xWindowSize", "yWindowSize", "closeSet", NULL};
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &set)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LLL", (char **) keywords, &xWindowSize, &yWindowSize, &closeSet)) {
         return NULL;
     }
-    retval = tui_Plot(set);
+    retval = tui_Plot(xWindowSize, yWindowSize, closeSet);
     if (PyErr_Occurred()) {
         if (retval != NULL) free(retval);
         return NULL;
@@ -2348,17 +3204,13 @@ _wrap__tui_tui_Visualize(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyO
 {
     PyObject *py_retval;
     char *retval;
-    char *centralWord;
-    int64_t centralWordVec;
-    int64_t closestWords;
-    int64_t closestWordDistances;
-    int64_t closestWordVectors;
-    const char *keywords[] = {"centralWord", "centralWordVec", "closestWords", "closestWordDistances", "closestWordVectors", NULL};
+    int64_t res;
+    const char *keywords[] = {"res", NULL};
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "sLLLL", (char **) keywords, &centralWord, &centralWordVec, &closestWords, &closestWordDistances, &closestWordVectors)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &res)) {
         return NULL;
     }
-    retval = tui_Visualize(centralWord, centralWordVec, closestWords, closestWordDistances, closestWordVectors);
+    retval = tui_Visualize(res);
     if (PyErr_Occurred()) {
         return NULL;
     }
@@ -2476,24 +3328,71 @@ static PyMethodDef _tui_functions[] = {
     {(char *) "Slice_uint8_subslice", (PyCFunction) _wrap__tui_Slice_uint8_subslice, METH_KEYWORDS|METH_VARARGS, "Slice_uint8_subslice(handle, st, ed)\n\ntype: handle: int64_t\ntype: st: int\ntype: ed: int" },
     {(char *) "Slice_uint8_set", (PyCFunction) _wrap__tui_Slice_uint8_set, METH_KEYWORDS|METH_VARARGS, "Slice_uint8_set(handle, idx, value)\n\ntype: handle: int64_t\ntype: idx: int\ntype: value: uint8_t" },
     {(char *) "Slice_uint8_append", (PyCFunction) _wrap__tui_Slice_uint8_append, METH_KEYWORDS|METH_VARARGS, "Slice_uint8_append(handle, value)\n\ntype: handle: int64_t\ntype: value: uint8_t" },
-    {(char *) "Slice_Ptr_tui_Word_CTor", (PyCFunction) _wrap__tui_Slice_Ptr_tui_Word_CTor, METH_NOARGS, "Slice_Ptr_tui_Word_CTor()\n\n" },
-    {(char *) "Slice_Ptr_tui_Word_len", (PyCFunction) _wrap__tui_Slice_Ptr_tui_Word_len, METH_KEYWORDS|METH_VARARGS, "Slice_Ptr_tui_Word_len(handle)\n\ntype: handle: int64_t" },
-    {(char *) "Slice_Ptr_tui_Word_elem", (PyCFunction) _wrap__tui_Slice_Ptr_tui_Word_elem, METH_KEYWORDS|METH_VARARGS, "Slice_Ptr_tui_Word_elem(handle, idx)\n\ntype: handle: int64_t\ntype: idx: int" },
-    {(char *) "Slice_Ptr_tui_Word_subslice", (PyCFunction) _wrap__tui_Slice_Ptr_tui_Word_subslice, METH_KEYWORDS|METH_VARARGS, "Slice_Ptr_tui_Word_subslice(handle, st, ed)\n\ntype: handle: int64_t\ntype: st: int\ntype: ed: int" },
-    {(char *) "Slice_Ptr_tui_Word_set", (PyCFunction) _wrap__tui_Slice_Ptr_tui_Word_set, METH_KEYWORDS|METH_VARARGS, "Slice_Ptr_tui_Word_set(handle, idx, value)\n\ntype: handle: int64_t\ntype: idx: int\ntype: value: int64_t" },
-    {(char *) "Slice_Ptr_tui_Word_append", (PyCFunction) _wrap__tui_Slice_Ptr_tui_Word_append, METH_KEYWORDS|METH_VARARGS, "Slice_Ptr_tui_Word_append(handle, value)\n\ntype: handle: int64_t\ntype: value: int64_t" },
+    {(char *) "Slice_Ptr_tui_CloseWord_CTor", (PyCFunction) _wrap__tui_Slice_Ptr_tui_CloseWord_CTor, METH_NOARGS, "Slice_Ptr_tui_CloseWord_CTor()\n\n" },
+    {(char *) "Slice_Ptr_tui_CloseWord_len", (PyCFunction) _wrap__tui_Slice_Ptr_tui_CloseWord_len, METH_KEYWORDS|METH_VARARGS, "Slice_Ptr_tui_CloseWord_len(handle)\n\ntype: handle: int64_t" },
+    {(char *) "Slice_Ptr_tui_CloseWord_elem", (PyCFunction) _wrap__tui_Slice_Ptr_tui_CloseWord_elem, METH_KEYWORDS|METH_VARARGS, "Slice_Ptr_tui_CloseWord_elem(handle, idx)\n\ntype: handle: int64_t\ntype: idx: int" },
+    {(char *) "Slice_Ptr_tui_CloseWord_subslice", (PyCFunction) _wrap__tui_Slice_Ptr_tui_CloseWord_subslice, METH_KEYWORDS|METH_VARARGS, "Slice_Ptr_tui_CloseWord_subslice(handle, st, ed)\n\ntype: handle: int64_t\ntype: st: int\ntype: ed: int" },
+    {(char *) "Slice_Ptr_tui_CloseWord_set", (PyCFunction) _wrap__tui_Slice_Ptr_tui_CloseWord_set, METH_KEYWORDS|METH_VARARGS, "Slice_Ptr_tui_CloseWord_set(handle, idx, value)\n\ntype: handle: int64_t\ntype: idx: int\ntype: value: int64_t" },
+    {(char *) "Slice_Ptr_tui_CloseWord_append", (PyCFunction) _wrap__tui_Slice_Ptr_tui_CloseWord_append, METH_KEYWORDS|METH_VARARGS, "Slice_Ptr_tui_CloseWord_append(handle, value)\n\ntype: handle: int64_t\ntype: value: int64_t" },
+    {(char *) "Slice_mat_Matrix_CTor", (PyCFunction) _wrap__tui_Slice_mat_Matrix_CTor, METH_NOARGS, "Slice_mat_Matrix_CTor()\n\n" },
+    {(char *) "Slice_mat_Matrix_len", (PyCFunction) _wrap__tui_Slice_mat_Matrix_len, METH_KEYWORDS|METH_VARARGS, "Slice_mat_Matrix_len(handle)\n\ntype: handle: int64_t" },
+    {(char *) "Slice_mat_Matrix_elem", (PyCFunction) _wrap__tui_Slice_mat_Matrix_elem, METH_KEYWORDS|METH_VARARGS, "Slice_mat_Matrix_elem(handle, idx)\n\ntype: handle: int64_t\ntype: idx: int" },
+    {(char *) "Slice_mat_Matrix_subslice", (PyCFunction) _wrap__tui_Slice_mat_Matrix_subslice, METH_KEYWORDS|METH_VARARGS, "Slice_mat_Matrix_subslice(handle, st, ed)\n\ntype: handle: int64_t\ntype: st: int\ntype: ed: int" },
+    {(char *) "Slice_mat_Matrix_set", (PyCFunction) _wrap__tui_Slice_mat_Matrix_set, METH_KEYWORDS|METH_VARARGS, "Slice_mat_Matrix_set(handle, idx, value)\n\ntype: handle: int64_t\ntype: idx: int\ntype: value: int64_t" },
+    {(char *) "Slice_mat_Matrix_append", (PyCFunction) _wrap__tui_Slice_mat_Matrix_append, METH_KEYWORDS|METH_VARARGS, "Slice_mat_Matrix_append(handle, value)\n\ntype: handle: int64_t\ntype: value: int64_t" },
+    {(char *) "tui_CloseWord_CTor", (PyCFunction) _wrap__tui_tui_CloseWord_CTor, METH_NOARGS, "tui_CloseWord_CTor()\n\n" },
+    {(char *) "tui_CloseWord_Word_Get", (PyCFunction) _wrap__tui_tui_CloseWord_Word_Get, METH_KEYWORDS|METH_VARARGS, "tui_CloseWord_Word_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_CloseWord_Word_Set", (PyCFunction) _wrap__tui_tui_CloseWord_Word_Set, METH_KEYWORDS|METH_VARARGS, "tui_CloseWord_Word_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_CloseWord_Score_Get", (PyCFunction) _wrap__tui_tui_CloseWord_Score_Get, METH_KEYWORDS|METH_VARARGS, "tui_CloseWord_Score_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_CloseWord_Score_Set", (PyCFunction) _wrap__tui_tui_CloseWord_Score_Set, METH_KEYWORDS|METH_VARARGS, "tui_CloseWord_Score_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: double" },
+    {(char *) "tui_ClosenessSet_CTor", (PyCFunction) _wrap__tui_tui_ClosenessSet_CTor, METH_NOARGS, "tui_ClosenessSet_CTor()\n\n" },
+    {(char *) "tui_ClosenessSet_CentralWord_Get", (PyCFunction) _wrap__tui_tui_ClosenessSet_CentralWord_Get, METH_KEYWORDS|METH_VARARGS, "tui_ClosenessSet_CentralWord_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_ClosenessSet_CentralWord_Set", (PyCFunction) _wrap__tui_tui_ClosenessSet_CentralWord_Set, METH_KEYWORDS|METH_VARARGS, "tui_ClosenessSet_CentralWord_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_ClosenessSet_CloseWords_Get", (PyCFunction) _wrap__tui_tui_ClosenessSet_CloseWords_Get, METH_KEYWORDS|METH_VARARGS, "tui_ClosenessSet_CloseWords_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_ClosenessSet_CloseWords_Set", (PyCFunction) _wrap__tui_tui_ClosenessSet_CloseWords_Set, METH_KEYWORDS|METH_VARARGS, "tui_ClosenessSet_CloseWords_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_Result_CTor", (PyCFunction) _wrap__tui_tui_Result_CTor, METH_NOARGS, "tui_Result_CTor()\n\n" },
+    {(char *) "tui_Result_FlattenedCompressed_Get", (PyCFunction) _wrap__tui_tui_Result_FlattenedCompressed_Get, METH_KEYWORDS|METH_VARARGS, "tui_Result_FlattenedCompressed_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Result_FlattenedCompressed_Set", (PyCFunction) _wrap__tui_tui_Result_FlattenedCompressed_Set, METH_KEYWORDS|METH_VARARGS, "tui_Result_FlattenedCompressed_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_Result_OriginalData_Get", (PyCFunction) _wrap__tui_tui_Result_OriginalData_Get, METH_KEYWORDS|METH_VARARGS, "tui_Result_OriginalData_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Result_OriginalData_Set", (PyCFunction) _wrap__tui_tui_Result_OriginalData_Set, METH_KEYWORDS|METH_VARARGS, "tui_Result_OriginalData_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_Result_Names_Get", (PyCFunction) _wrap__tui_tui_Result_Names_Get, METH_KEYWORDS|METH_VARARGS, "tui_Result_Names_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Result_Names_Set", (PyCFunction) _wrap__tui_tui_Result_Names_Set, METH_KEYWORDS|METH_VARARGS, "tui_Result_Names_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_Result_OutputDim_Get", (PyCFunction) _wrap__tui_tui_Result_OutputDim_Get, METH_KEYWORDS|METH_VARARGS, "tui_Result_OutputDim_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Result_OutputDim_Set", (PyCFunction) _wrap__tui_tui_Result_OutputDim_Set, METH_KEYWORDS|METH_VARARGS, "tui_Result_OutputDim_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_Result_N_Get", (PyCFunction) _wrap__tui_tui_Result_N_Get, METH_KEYWORDS|METH_VARARGS, "tui_Result_N_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Result_N_Set", (PyCFunction) _wrap__tui_tui_Result_N_Set, METH_KEYWORDS|METH_VARARGS, "tui_Result_N_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_Result_WindowSizeX_Get", (PyCFunction) _wrap__tui_tui_Result_WindowSizeX_Get, METH_KEYWORDS|METH_VARARGS, "tui_Result_WindowSizeX_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Result_WindowSizeX_Set", (PyCFunction) _wrap__tui_tui_Result_WindowSizeX_Set, METH_KEYWORDS|METH_VARARGS, "tui_Result_WindowSizeX_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_Result_WindowSizeY_Get", (PyCFunction) _wrap__tui_tui_Result_WindowSizeY_Get, METH_KEYWORDS|METH_VARARGS, "tui_Result_WindowSizeY_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Result_WindowSizeY_Set", (PyCFunction) _wrap__tui_tui_Result_WindowSizeY_Set, METH_KEYWORDS|METH_VARARGS, "tui_Result_WindowSizeY_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_Result_Alpha_Get", (PyCFunction) _wrap__tui_tui_Result_Alpha_Get, METH_KEYWORDS|METH_VARARGS, "tui_Result_Alpha_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Result_Alpha_Set", (PyCFunction) _wrap__tui_tui_Result_Alpha_Set, METH_KEYWORDS|METH_VARARGS, "tui_Result_Alpha_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: double" },
+    {(char *) "tui_Result_NumWorkers_Get", (PyCFunction) _wrap__tui_tui_Result_NumWorkers_Get, METH_KEYWORDS|METH_VARARGS, "tui_Result_NumWorkers_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Result_NumWorkers_Set", (PyCFunction) _wrap__tui_tui_Result_NumWorkers_Set, METH_KEYWORDS|METH_VARARGS, "tui_Result_NumWorkers_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
     {(char *) "tui_ResultSet_CTor", (PyCFunction) _wrap__tui_tui_ResultSet_CTor, METH_NOARGS, "tui_ResultSet_CTor()\n\n" },
-    {(char *) "tui_ResultSet_WordOfInterest_Get", (PyCFunction) _wrap__tui_tui_ResultSet_WordOfInterest_Get, METH_KEYWORDS|METH_VARARGS, "tui_ResultSet_WordOfInterest_Get(handle)\n\ntype: handle: int64_t" },
-    {(char *) "tui_ResultSet_WordOfInterest_Set", (PyCFunction) _wrap__tui_tui_ResultSet_WordOfInterest_Set, METH_KEYWORDS|METH_VARARGS, "tui_ResultSet_WordOfInterest_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
-    {(char *) "tui_ResultSet_VectorDim_Get", (PyCFunction) _wrap__tui_tui_ResultSet_VectorDim_Get, METH_KEYWORDS|METH_VARARGS, "tui_ResultSet_VectorDim_Get(handle)\n\ntype: handle: int64_t" },
-    {(char *) "tui_ResultSet_VectorDim_Set", (PyCFunction) _wrap__tui_tui_ResultSet_VectorDim_Set, METH_KEYWORDS|METH_VARARGS, "tui_ResultSet_VectorDim_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
-    {(char *) "tui_ResultSet_SimilarWords_Get", (PyCFunction) _wrap__tui_tui_ResultSet_SimilarWords_Get, METH_KEYWORDS|METH_VARARGS, "tui_ResultSet_SimilarWords_Get(handle)\n\ntype: handle: int64_t" },
-    {(char *) "tui_ResultSet_SimilarWords_Set", (PyCFunction) _wrap__tui_tui_ResultSet_SimilarWords_Set, METH_KEYWORDS|METH_VARARGS, "tui_ResultSet_SimilarWords_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
-    {(char *) "tui_ResultSet_Distances_Get", (PyCFunction) _wrap__tui_tui_ResultSet_Distances_Get, METH_KEYWORDS|METH_VARARGS, "tui_ResultSet_Distances_Get(handle)\n\ntype: handle: int64_t" },
-    {(char *) "tui_ResultSet_Distances_Set", (PyCFunction) _wrap__tui_tui_ResultSet_Distances_Set, METH_KEYWORDS|METH_VARARGS, "tui_ResultSet_Distances_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_VecOpParams_CTor", (PyCFunction) _wrap__tui_tui_VecOpParams_CTor, METH_NOARGS, "tui_VecOpParams_CTor()\n\n" },
+    {(char *) "tui_Vectors_CTor", (PyCFunction) _wrap__tui_tui_Vectors_CTor, METH_NOARGS, "tui_Vectors_CTor()\n\n" },
+    {(char *) "tui_Vectors_Data_Get", (PyCFunction) _wrap__tui_tui_Vectors_Data_Get, METH_KEYWORDS|METH_VARARGS, "tui_Vectors_Data_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Vectors_Data_Set", (PyCFunction) _wrap__tui_tui_Vectors_Data_Set, METH_KEYWORDS|METH_VARARGS, "tui_Vectors_Data_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_Vectors_Rows_Get", (PyCFunction) _wrap__tui_tui_Vectors_Rows_Get, METH_KEYWORDS|METH_VARARGS, "tui_Vectors_Rows_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Vectors_Rows_Set", (PyCFunction) _wrap__tui_tui_Vectors_Rows_Set, METH_KEYWORDS|METH_VARARGS, "tui_Vectors_Rows_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_Vectors_Cols_Get", (PyCFunction) _wrap__tui_tui_Vectors_Cols_Get, METH_KEYWORDS|METH_VARARGS, "tui_Vectors_Cols_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Vectors_Cols_Set", (PyCFunction) _wrap__tui_tui_Vectors_Cols_Set, METH_KEYWORDS|METH_VARARGS, "tui_Vectors_Cols_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
     {(char *) "tui_Word_CTor", (PyCFunction) _wrap__tui_tui_Word_CTor, METH_NOARGS, "tui_Word_CTor()\n\n" },
-    {(char *) "tui_Plot", (PyCFunction) _wrap__tui_tui_Plot, METH_KEYWORDS|METH_VARARGS, "tui_Plot(set)\n\ntype: set: int64_t" },
-    {(char *) "tui_Visualize", (PyCFunction) _wrap__tui_tui_Visualize, METH_KEYWORDS|METH_VARARGS, "tui_Visualize(centralWord, centralWordVec, closestWords, closestWordDistances, closestWordVectors)\n\ntype: centralWord: char *\ntype: centralWordVec: int64_t\ntype: closestWords: int64_t\ntype: closestWordDistances: int64_t\ntype: closestWordVectors: int64_t" },
+    {(char *) "tui_Word_Name_Get", (PyCFunction) _wrap__tui_tui_Word_Name_Get, METH_KEYWORDS|METH_VARARGS, "tui_Word_Name_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Word_Name_Set", (PyCFunction) _wrap__tui_tui_Word_Name_Set, METH_KEYWORDS|METH_VARARGS, "tui_Word_Name_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: char *" },
+    {(char *) "tui_Word_Dim_Get", (PyCFunction) _wrap__tui_tui_Word_Dim_Get, METH_KEYWORDS|METH_VARARGS, "tui_Word_Dim_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Word_Dim_Set", (PyCFunction) _wrap__tui_tui_Word_Dim_Set, METH_KEYWORDS|METH_VARARGS, "tui_Word_Dim_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_Word_Vector_Get", (PyCFunction) _wrap__tui_tui_Word_Vector_Get, METH_KEYWORDS|METH_VARARGS, "tui_Word_Vector_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Word_Vector_Set", (PyCFunction) _wrap__tui_tui_Word_Vector_Set, METH_KEYWORDS|METH_VARARGS, "tui_Word_Vector_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_Word_Vector2D_Get", (PyCFunction) _wrap__tui_tui_Word_Vector2D_Get, METH_KEYWORDS|METH_VARARGS, "tui_Word_Vector2D_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Word_Vector2D_Set", (PyCFunction) _wrap__tui_tui_Word_Vector2D_Set, METH_KEYWORDS|METH_VARARGS, "tui_Word_Vector2D_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_Word_Idx_Get", (PyCFunction) _wrap__tui_tui_Word_Idx_Get, METH_KEYWORDS|METH_VARARGS, "tui_Word_Idx_Get(handle)\n\ntype: handle: int64_t" },
+    {(char *) "tui_Word_Idx_Set", (PyCFunction) _wrap__tui_tui_Word_Idx_Set, METH_KEYWORDS|METH_VARARGS, "tui_Word_Idx_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: int64_t" },
+    {(char *) "tui_DenseToVectors", (PyCFunction) _wrap__tui_tui_DenseToVectors, METH_KEYWORDS|METH_VARARGS, "tui_DenseToVectors(m)\n\ntype: m: int64_t" },
+    {(char *) "tui_CompressAndVisualize", (PyCFunction) _wrap__tui_tui_CompressAndVisualize, METH_KEYWORDS|METH_VARARGS, "tui_CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List, r, c, outputDim, Names)\n\ntype: N: int64_t\ntype: WindowSizeX: int64_t\ntype: WindowSizeY: int64_t\ntype: NumWorkers: int64_t\ntype: Alpha: double\ntype: List: int64_t\ntype: r: int64_t\ntype: c: int64_t\ntype: outputDim: int64_t\ntype: Names: int64_t" },
+    {(char *) "tui_Plot", (PyCFunction) _wrap__tui_tui_Plot, METH_KEYWORDS|METH_VARARGS, "tui_Plot(xWindowSize, yWindowSize, closeSet)\n\ntype: xWindowSize: int64_t\ntype: yWindowSize: int64_t\ntype: closeSet: int64_t" },
+    {(char *) "tui_Visualize", (PyCFunction) _wrap__tui_tui_Visualize, METH_KEYWORDS|METH_VARARGS, "tui_Visualize(res)\n\ntype: res: int64_t" },
     {NULL, NULL, 0, NULL}
 };
 #if PY_VERSION_HEX >= 0x03000000

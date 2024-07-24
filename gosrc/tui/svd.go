@@ -1,4 +1,4 @@
-package svd
+package tui
 
 import (
 	"fmt"
@@ -9,31 +9,31 @@ import (
 )
 
 type Word struct {
-	name     string
-	dim      int
-	vector   []float64
-	vector2D []float64
-	idx      int
+	Name     string
+	Dim      int
+	Vector   []float64
+	Vector2D []float64
+	Idx      int
 }
 
 type CloseWord struct {
-	word         *Word
+	Word         *Word
 	rankBefore   int
 	rankAfter    int
 	cosSimBefore float64
 	cosSimAfter  float64
-	score        float64
+	Score        float64
 }
 
 type ResultSet struct {
 	words     *[]*Word
 	outputDim int
-	svdResult *SVDResult
+	svdResult *Result
 }
 
 type ClosenessSet struct {
-	centralWord *Word
-	closeWords  []*CloseWord
+	CentralWord *Word
+	CloseWords  []*CloseWord
 }
 
 type Vectors struct {
@@ -49,11 +49,25 @@ type VecOpParams struct {
 	wordChan    chan []*CloseWord
 }
 
-type SVDResult struct {
+type Result struct {
 	FlattenedCompressed *Vectors
 	OriginalData        *Vectors
 	Names               *[]string
 	OutputDim           int
+	N                   int
+	WindowSizeX         int
+	WindowSizeY         int
+	Alpha               float64
+	NumWorkers          int
+}
+
+func (rs *ResultSet) getWordFromName(name string) (*Word, error) {
+	for _, w := range *rs.words {
+		if w.Name == name {
+			return w, nil
+		}
+	}
+	return nil, fmt.Errorf("could not find word %s", name)
 }
 
 func DenseToVectors(m *mat.Dense) *Vectors {
@@ -71,7 +85,7 @@ func DenseToVectors(m *mat.Dense) *Vectors {
 	}
 }
 
-func CompressAndVisualize(List []float64, r int, c int, outputDim int, Names []string) error {
+func CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers int, Alpha float64, List []float64, r int, c int, outputDim int, Names []string) error {
 	m := mat.NewDense(r, c, List)
 	var svd mat.SVD
 	ok := svd.Factorize(m, mat.SVDThinU)
@@ -89,7 +103,7 @@ func CompressAndVisualize(List []float64, r int, c int, outputDim int, Names []s
 	// Calculate the reduced positions matrix
 	var reducedPositions mat.Dense
 	reducedPositions.Mul(U2, Sigma2)
-	return Visualize(&SVDResult{
+	return Visualize(&Result{
 		DenseToVectors(&reducedPositions),
 		&Vectors{
 			Data: &List,
@@ -98,11 +112,16 @@ func CompressAndVisualize(List []float64, r int, c int, outputDim int, Names []s
 		},
 		&Names,
 		outputDim,
+		N,
+		WindowSizeX,
+		WindowSizeY,
+		Alpha,
+		NumWorkers,
 	})
 
 }
 
-func processPyData(svd *SVDResult) *ResultSet {
+func processPyData(svd *Result) *ResultSet {
 	numWords := len(*svd.Names)
 
 	names := *svd.Names
@@ -112,10 +131,10 @@ func processPyData(svd *SVDResult) *ResultSet {
 	reshapedWordVecs := make([]*Word, numWords)
 	for i := 0; i < numWords; i++ {
 		reshapedWordVecs[i] = &Word{
-			name:     names[i],
-			vector:   originalVecs[i : i+svd.OriginalData.Cols],
-			vector2D: svdVecs[i : i+svd.FlattenedCompressed.Cols],
-			idx:      i,
+			Name:     names[i],
+			Vector:   originalVecs[i*svd.OriginalData.Cols : (i+1)*svd.OriginalData.Cols],
+			Vector2D: svdVecs[i*svd.FlattenedCompressed.Cols : (i+1)*svd.FlattenedCompressed.Cols],
+			Idx:      i,
 		}
 	}
 
@@ -126,33 +145,14 @@ func processPyData(svd *SVDResult) *ResultSet {
 	}
 }
 
-func Plot(results *ResultSet) string {
-	return "not implemented"
-}
-
-func visualize(results *ResultSet) error {
-	words := *results.words
-	getClosenessSet(words[0], results)
-	res := Plot(results)
-	if res == "" {
-		return fmt.Errorf("Drew nothing")
-	}
-	fmt.Println(res)
-	return nil
-}
-
-func Visualize(svd *SVDResult) error {
-	return visualize(processPyData(svd))
-}
-
-func splitVectorizedOp(numWorkers int, jobParams *VecOpParams, by func(*sync.WaitGroup, []*Word, *VecOpParams)) []*CloseWord {
+func splitVectorizedOp(jobParams *VecOpParams, by func(*sync.WaitGroup, []*Word, *VecOpParams)) []*CloseWord {
 	numVectors := len(*jobParams.results.svdResult.Names)
+	numWorkers := jobParams.results.svdResult.NumWorkers
+	alpha := jobParams.results.svdResult.Alpha
 	remainderVecs := numVectors % numWorkers
 
 	dataToSplit := jobParams.words
 	splitAmount := numVectors / numWorkers
-
-	jobParams.wordChan = make(chan []*CloseWord, numWorkers+1)
 
 	wg := &sync.WaitGroup{}
 	for i := 0; i < numWorkers; i++ {
@@ -163,16 +163,18 @@ func splitVectorizedOp(numWorkers int, jobParams *VecOpParams, by func(*sync.Wai
 
 	// Finally, do the remainder vecs
 	wg.Add(1)
-	splicedVecs := dataToSplit[-remainderVecs:]
+	splicedVecs := dataToSplit[len(dataToSplit)-remainderVecs:]
 	go by(wg, splicedVecs, jobParams)
 
 	wg.Wait()
 	close(jobParams.wordChan)
 
+	i := 0
 	resultData := make([]*CloseWord, numVectors)
 	for result := range jobParams.wordChan {
-		for i, data := range result {
+		for _, data := range result {
 			resultData[i] = data
+			i++
 		}
 	}
 
@@ -190,16 +192,19 @@ func splitVectorizedOp(numWorkers int, jobParams *VecOpParams, by func(*sync.Wai
 
 	numVecs := len(resultData)
 	getScore := func(close *CloseWord) float64 {
-		return (float64(numVecs-close.rankAfter) / float64(numVecs)) * 1 / (math.Abs(float64(close.rankBefore-close.rankAfter)) + 1)
+		beforePerformance := float64(numVecs-close.rankBefore) / float64(numVecs)
+		//afterPerformance := float64(close.rankAfter / numVecs)
+		rankDrift := (float64(numVecs) - math.Abs(float64(close.rankBefore-close.rankAfter))) / float64(numVecs)
+		return beforePerformance + (alpha * rankDrift)
 	}
 
 	for i, closeWord := range resultData {
 		closeWord.rankAfter = i
-		closeWord.score = getScore(closeWord)
+		closeWord.Score = getScore(closeWord)
 	}
 
 	sort.Slice(resultData, func(i, j int) bool {
-		return resultData[i].score > resultData[j].score
+		return resultData[i].Score > resultData[j].Score
 	})
 
 	return resultData
@@ -215,16 +220,12 @@ func getAdjustedSimilarities(wg *sync.WaitGroup, words []*Word, jobParams *VecOp
 		return mat.Dot(vecA, vecB) / (vecA.Norm(2) * vecB.Norm(2))
 	}
 
-	// TODO: Make score include the ranking equation from before,
-	//       not just cos sim, where it penalizes rank
-	//       differences before and after compression, and a bad rank
-
 	closeWords := make([]*CloseWord, len(words))
 	for i := 0; i < len(words); i++ {
-		cosSimBefore := cosSim(jobParams.centralWord.vector, words[i].vector)
-		cosSimAfter := cosSim(jobParams.centralWord.vector2D, words[i].vector2D)
+		cosSimBefore := cosSim(jobParams.centralWord.Vector, words[i].Vector)
+		cosSimAfter := cosSim(jobParams.centralWord.Vector2D, words[i].Vector2D)
 		closeWords[i] = &CloseWord{
-			word:         words[i],
+			Word:         words[i],
 			cosSimBefore: cosSimBefore,
 			cosSimAfter:  cosSimAfter,
 		}
@@ -236,16 +237,18 @@ func getAdjustedSimilarities(wg *sync.WaitGroup, words []*Word, jobParams *VecOp
 }
 
 func getClosenessSet(centralWord *Word, results *ResultSet) *ClosenessSet {
+
 	JobParams := &VecOpParams{
 		centralWord: centralWord,
 		words:       *results.words,
 		results:     results,
-		wordChan:    nil,
+		wordChan:    make(chan []*CloseWord, len(*results.words)),
 	}
 
-	numWorkers := 10
+	closeWords := splitVectorizedOp(JobParams, getAdjustedSimilarities)
 
-	splitVectorizedOp(numWorkers, JobParams, getAdjustedSimilarities)
-
-	return &ClosenessSet{}
+	return &ClosenessSet{
+		CentralWord: centralWord,
+		CloseWords:  closeWords[1:], // disregard first index as that will be central word
+	}
 }
