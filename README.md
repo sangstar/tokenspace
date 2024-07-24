@@ -14,7 +14,7 @@ Enter text (exit! to escape): football
             (winning)(performance)   (practice)      
            (country)   (hockey)       
       (year)    (second)           
-          ┼  (player)(spain) (race)(points)(biggest)  (champion)(teams)      
+          <span style="color:blue;">┼</span>  (player)(spain) (race)(points)(biggest)  (champion)(teams)      
          (america)            
           (both) (won)          
            (score)          
