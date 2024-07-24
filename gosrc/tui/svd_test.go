@@ -36,7 +36,7 @@ func TestSVDOnLargeMatrix(t *testing.T) {
 		t.Fatalf("Failed to unmarshal data.json: %v", err)
 	}
 
-	reduced := CompressAndVisualize(testData.FlatList, testData.Rows, testData.Cols, 2, testData.Names)
+	reduced := CompressAndVisualize(20, 10, 10, 10, 0.05, testData.FlatList, testData.Rows, testData.Cols, 2, testData.Names)
 
 	assert.NotNil(t, reduced)
 
