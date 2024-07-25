@@ -1,26 +1,8 @@
 # wordspace
-Visualize word2vec embeddings in a terminal window.
+Visualize word embeddings in a terminal window.
 
-```
-Enter text (exit! to escape): football
+![output](https://github.com/user-attachments/assets/e548e611-7a2d-4bf7-8ca2-3959e43a0ef0)
 
-                   (warriors) (halftime) 
-                   (saints) (reds) 
-             (soccer) (nba) (nfl)   (tournament) (lions)  
-             (lead)   (tennis)  (division)(alabama)(bears)   
-              (basketball)(played) (tough)  (michigan)    
-             (college)  (competition)(major)  (career)    
-        (games) (season) (sport) (canada)    (baseball)(challenge)  (championship)(crowd)    
-            (winning)(performance)   (practice)      
-           (country)   (hockey)       
-      (year)    (second)           
-          ┼  (player)(spain) (race)(points)(biggest)  (champion)(teams)      
-         (america)            
-          (both) (won)          
-           (score)          
-         (match)            
-          (league)    
-```
 
 The symbol `┼` indicates the position of the central word,
 and words scattered around it are the top `n` most similar
@@ -28,7 +10,7 @@ words by cosine similarity, positioned according to
 their reduced 2D projection relative to the central word.
 
 
-This package reduces word2vec vectors (loaded from Gensim)
+This package reduces word vectors (loaded from Gensim)
 to two dimensions by getting the singular value decomposition
 of the embeddings matrix and approximating the matrix using 
 its first two left singular vectors along with its values. If
