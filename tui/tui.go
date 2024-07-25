@@ -1545,6 +1545,104 @@ func handleFromPtr_tui_Word(p interface{}) CGoHandle {
 
 // ---- Structs ---
 
+// --- wrapping struct: tui.Word ---
+//
+//export tui_Word_CTor
+func tui_Word_CTor() CGoHandle {
+	return CGoHandle(handleFromPtr_tui_Word(&tui.Word{}))
+}
+
+//export tui_Word_Name_Get
+func tui_Word_Name_Get(handle CGoHandle) *C.char {
+	op := ptrFromHandle_tui_Word(handle)
+	return C.CString(op.Name)
+}
+
+//export tui_Word_Name_Set
+func tui_Word_Name_Set(handle CGoHandle, val *C.char) {
+	op := ptrFromHandle_tui_Word(handle)
+	op.Name = C.GoString(val)
+}
+
+//export tui_Word_Dim_Get
+func tui_Word_Dim_Get(handle CGoHandle) C.longlong {
+	op := ptrFromHandle_tui_Word(handle)
+	return C.longlong(op.Dim)
+}
+
+//export tui_Word_Dim_Set
+func tui_Word_Dim_Set(handle CGoHandle, val C.longlong) {
+	op := ptrFromHandle_tui_Word(handle)
+	op.Dim = int(val)
+}
+
+//export tui_Word_Vector_Get
+func tui_Word_Vector_Get(handle CGoHandle) CGoHandle {
+	op := ptrFromHandle_tui_Word(handle)
+	return handleFromPtr_Slice_float64(&op.Vector)
+}
+
+//export tui_Word_Vector_Set
+func tui_Word_Vector_Set(handle CGoHandle, val CGoHandle) {
+	op := ptrFromHandle_tui_Word(handle)
+	op.Vector = deptrFromHandle_Slice_float64(val)
+}
+
+//export tui_Word_Vector2D_Get
+func tui_Word_Vector2D_Get(handle CGoHandle) CGoHandle {
+	op := ptrFromHandle_tui_Word(handle)
+	return handleFromPtr_Slice_float64(&op.Vector2D)
+}
+
+//export tui_Word_Vector2D_Set
+func tui_Word_Vector2D_Set(handle CGoHandle, val CGoHandle) {
+	op := ptrFromHandle_tui_Word(handle)
+	op.Vector2D = deptrFromHandle_Slice_float64(val)
+}
+
+//export tui_Word_Idx_Get
+func tui_Word_Idx_Get(handle CGoHandle) C.longlong {
+	op := ptrFromHandle_tui_Word(handle)
+	return C.longlong(op.Idx)
+}
+
+//export tui_Word_Idx_Set
+func tui_Word_Idx_Set(handle CGoHandle, val C.longlong) {
+	op := ptrFromHandle_tui_Word(handle)
+	op.Idx = int(val)
+}
+
+// --- wrapping struct: tui.CloseWord ---
+//
+//export tui_CloseWord_CTor
+func tui_CloseWord_CTor() CGoHandle {
+	return CGoHandle(handleFromPtr_tui_CloseWord(&tui.CloseWord{}))
+}
+
+//export tui_CloseWord_Word_Get
+func tui_CloseWord_Word_Get(handle CGoHandle) CGoHandle {
+	op := ptrFromHandle_tui_CloseWord(handle)
+	return handleFromPtr_Ptr_tui_Word(op.Word)
+}
+
+//export tui_CloseWord_Word_Set
+func tui_CloseWord_Word_Set(handle CGoHandle, val CGoHandle) {
+	op := ptrFromHandle_tui_CloseWord(handle)
+	op.Word = ptrFromHandle_Ptr_tui_Word(val)
+}
+
+//export tui_CloseWord_Score_Get
+func tui_CloseWord_Score_Get(handle CGoHandle) C.double {
+	op := ptrFromHandle_tui_CloseWord(handle)
+	return C.double(op.Score)
+}
+
+//export tui_CloseWord_Score_Set
+func tui_CloseWord_Score_Set(handle CGoHandle, val C.double) {
+	op := ptrFromHandle_tui_CloseWord(handle)
+	op.Score = float64(val)
+}
+
 // --- wrapping struct: tui.ClosenessSet ---
 //
 //export tui_ClosenessSet_CTor
@@ -1748,104 +1846,6 @@ func tui_Vectors_Cols_Set(handle CGoHandle, val C.longlong) {
 	op.Cols = int(val)
 }
 
-// --- wrapping struct: tui.Word ---
-//
-//export tui_Word_CTor
-func tui_Word_CTor() CGoHandle {
-	return CGoHandle(handleFromPtr_tui_Word(&tui.Word{}))
-}
-
-//export tui_Word_Name_Get
-func tui_Word_Name_Get(handle CGoHandle) *C.char {
-	op := ptrFromHandle_tui_Word(handle)
-	return C.CString(op.Name)
-}
-
-//export tui_Word_Name_Set
-func tui_Word_Name_Set(handle CGoHandle, val *C.char) {
-	op := ptrFromHandle_tui_Word(handle)
-	op.Name = C.GoString(val)
-}
-
-//export tui_Word_Dim_Get
-func tui_Word_Dim_Get(handle CGoHandle) C.longlong {
-	op := ptrFromHandle_tui_Word(handle)
-	return C.longlong(op.Dim)
-}
-
-//export tui_Word_Dim_Set
-func tui_Word_Dim_Set(handle CGoHandle, val C.longlong) {
-	op := ptrFromHandle_tui_Word(handle)
-	op.Dim = int(val)
-}
-
-//export tui_Word_Vector_Get
-func tui_Word_Vector_Get(handle CGoHandle) CGoHandle {
-	op := ptrFromHandle_tui_Word(handle)
-	return handleFromPtr_Slice_float64(&op.Vector)
-}
-
-//export tui_Word_Vector_Set
-func tui_Word_Vector_Set(handle CGoHandle, val CGoHandle) {
-	op := ptrFromHandle_tui_Word(handle)
-	op.Vector = deptrFromHandle_Slice_float64(val)
-}
-
-//export tui_Word_Vector2D_Get
-func tui_Word_Vector2D_Get(handle CGoHandle) CGoHandle {
-	op := ptrFromHandle_tui_Word(handle)
-	return handleFromPtr_Slice_float64(&op.Vector2D)
-}
-
-//export tui_Word_Vector2D_Set
-func tui_Word_Vector2D_Set(handle CGoHandle, val CGoHandle) {
-	op := ptrFromHandle_tui_Word(handle)
-	op.Vector2D = deptrFromHandle_Slice_float64(val)
-}
-
-//export tui_Word_Idx_Get
-func tui_Word_Idx_Get(handle CGoHandle) C.longlong {
-	op := ptrFromHandle_tui_Word(handle)
-	return C.longlong(op.Idx)
-}
-
-//export tui_Word_Idx_Set
-func tui_Word_Idx_Set(handle CGoHandle, val C.longlong) {
-	op := ptrFromHandle_tui_Word(handle)
-	op.Idx = int(val)
-}
-
-// --- wrapping struct: tui.CloseWord ---
-//
-//export tui_CloseWord_CTor
-func tui_CloseWord_CTor() CGoHandle {
-	return CGoHandle(handleFromPtr_tui_CloseWord(&tui.CloseWord{}))
-}
-
-//export tui_CloseWord_Word_Get
-func tui_CloseWord_Word_Get(handle CGoHandle) CGoHandle {
-	op := ptrFromHandle_tui_CloseWord(handle)
-	return handleFromPtr_Ptr_tui_Word(op.Word)
-}
-
-//export tui_CloseWord_Word_Set
-func tui_CloseWord_Word_Set(handle CGoHandle, val CGoHandle) {
-	op := ptrFromHandle_tui_CloseWord(handle)
-	op.Word = ptrFromHandle_Ptr_tui_Word(val)
-}
-
-//export tui_CloseWord_Score_Get
-func tui_CloseWord_Score_Get(handle CGoHandle) C.double {
-	op := ptrFromHandle_tui_CloseWord(handle)
-	return C.double(op.Score)
-}
-
-//export tui_CloseWord_Score_Set
-func tui_CloseWord_Score_Set(handle CGoHandle, val C.double) {
-	op := ptrFromHandle_tui_CloseWord(handle)
-	op.Score = float64(val)
-}
-
 // ---- Slices ---
 
 // ---- Maps ---
@@ -1862,6 +1862,21 @@ func tui_DenseToVectors(m CGoHandle) CGoHandle {
 
 // ---- Functions ---
 
+//export tui_CompressAndVisualize
+func tui_CompressAndVisualize(N C.longlong, WindowSizeX C.longlong, WindowSizeY C.longlong, NumWorkers C.longlong, Alpha C.double, List CGoHandle, r C.longlong, c C.longlong, outputDim C.longlong, Names CGoHandle) *C.char {
+	_saved_thread := C.PyEval_SaveThread()
+	var __err error
+	__err = tui.CompressAndVisualize(int(N), int(WindowSizeX), int(WindowSizeY), int(NumWorkers), float64(Alpha), deptrFromHandle_Slice_float64(List), int(r), int(c), int(outputDim), deptrFromHandle_Slice_string(Names))
+
+	C.PyEval_RestoreThread(_saved_thread)
+	if __err != nil {
+		estr := C.CString(__err.Error())
+		C.PyErr_SetString(C.PyExc_RuntimeError, estr)
+		return estr
+	}
+	return C.CString("")
+}
+
 //export tui_Plot
 func tui_Plot(xWindowSize C.longlong, yWindowSize C.longlong, closeSet CGoHandle) *C.char {
 	_saved_thread := C.PyEval_SaveThread()
@@ -1875,21 +1890,6 @@ func tui_Visualize(res CGoHandle) *C.char {
 	_saved_thread := C.PyEval_SaveThread()
 	var __err error
 	__err = tui.Visualize(ptrFromHandle_Ptr_tui_Result(res))
-
-	C.PyEval_RestoreThread(_saved_thread)
-	if __err != nil {
-		estr := C.CString(__err.Error())
-		C.PyErr_SetString(C.PyExc_RuntimeError, estr)
-		return estr
-	}
-	return C.CString("")
-}
-
-//export tui_CompressAndVisualize
-func tui_CompressAndVisualize(N C.longlong, WindowSizeX C.longlong, WindowSizeY C.longlong, NumWorkers C.longlong, Alpha C.double, List CGoHandle, r C.longlong, c C.longlong, outputDim C.longlong, Names CGoHandle) *C.char {
-	_saved_thread := C.PyEval_SaveThread()
-	var __err error
-	__err = tui.CompressAndVisualize(int(N), int(WindowSizeX), int(WindowSizeY), int(NumWorkers), float64(Alpha), deptrFromHandle_Slice_float64(List), int(r), int(c), int(outputDim), deptrFromHandle_Slice_string(Names))
 
 	C.PyEval_RestoreThread(_saved_thread)
 	if __err != nil {

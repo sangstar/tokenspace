@@ -210,6 +210,179 @@ class Slice_mat_Matrix(go.GoClass):
 
 # ---- Structs ---
 
+# Python type for struct tui.Word
+class Word(go.GoClass):
+	""""""
+	def __init__(self, *args, **kwargs):
+		"""
+		handle=A Go-side object is always initialized with an explicit handle=arg
+		otherwise parameters can be unnamed in order of field names or named fields
+		in which case a new Go object is constructed first
+		"""
+		if len(kwargs) == 1 and 'handle' in kwargs:
+			self.handle = kwargs['handle']
+			_tui.IncRef(self.handle)
+		elif len(args) == 1 and isinstance(args[0], go.GoClass):
+			self.handle = args[0].handle
+			_tui.IncRef(self.handle)
+		else:
+			self.handle = _tui.tui_Word_CTor()
+			_tui.IncRef(self.handle)
+			if  0 < len(args):
+				self.Name = args[0]
+			if "Name" in kwargs:
+				self.Name = kwargs["Name"]
+			if  1 < len(args):
+				self.Dim = args[1]
+			if "Dim" in kwargs:
+				self.Dim = kwargs["Dim"]
+			if  2 < len(args):
+				self.Vector = args[2]
+			if "Vector" in kwargs:
+				self.Vector = kwargs["Vector"]
+			if  3 < len(args):
+				self.Vector2D = args[3]
+			if "Vector2D" in kwargs:
+				self.Vector2D = kwargs["Vector2D"]
+			if  4 < len(args):
+				self.Idx = args[4]
+			if "Idx" in kwargs:
+				self.Idx = kwargs["Idx"]
+	def __del__(self):
+		_tui.DecRef(self.handle)
+	def __str__(self):
+		pr = [(p, getattr(self, p)) for p in dir(self) if not p.startswith('__')]
+		sv = 'tui.Word{'
+		first = True
+		for v in pr:
+			if callable(v[1]):
+				continue
+			if first:
+				first = False
+			else:
+				sv += ', '
+			sv += v[0] + '=' + str(v[1])
+		return sv + '}'
+	def __repr__(self):
+		pr = [(p, getattr(self, p)) for p in dir(self) if not p.startswith('__')]
+		sv = 'tui.Word ( '
+		for v in pr:
+			if not callable(v[1]):
+				sv += v[0] + '=' + str(v[1]) + ', '
+		return sv + ')'
+	@property
+	def Name(self):
+		return _tui.tui_Word_Name_Get(self.handle)
+	@Name.setter
+	def Name(self, value):
+		if isinstance(value, go.GoClass):
+			_tui.tui_Word_Name_Set(self.handle, value.handle)
+		else:
+			_tui.tui_Word_Name_Set(self.handle, value)
+	@property
+	def Dim(self):
+		return _tui.tui_Word_Dim_Get(self.handle)
+	@Dim.setter
+	def Dim(self, value):
+		if isinstance(value, go.GoClass):
+			_tui.tui_Word_Dim_Set(self.handle, value.handle)
+		else:
+			_tui.tui_Word_Dim_Set(self.handle, value)
+	@property
+	def Vector(self):
+		return go.Slice_float64(handle=_tui.tui_Word_Vector_Get(self.handle))
+	@Vector.setter
+	def Vector(self, value):
+		if isinstance(value, go.GoClass):
+			_tui.tui_Word_Vector_Set(self.handle, value.handle)
+		else:
+			raise TypeError("supplied argument type {t} is not a go.GoClass".format(t=type(value)))
+	@property
+	def Vector2D(self):
+		return go.Slice_float64(handle=_tui.tui_Word_Vector2D_Get(self.handle))
+	@Vector2D.setter
+	def Vector2D(self, value):
+		if isinstance(value, go.GoClass):
+			_tui.tui_Word_Vector2D_Set(self.handle, value.handle)
+		else:
+			raise TypeError("supplied argument type {t} is not a go.GoClass".format(t=type(value)))
+	@property
+	def Idx(self):
+		return _tui.tui_Word_Idx_Get(self.handle)
+	@Idx.setter
+	def Idx(self, value):
+		if isinstance(value, go.GoClass):
+			_tui.tui_Word_Idx_Set(self.handle, value.handle)
+		else:
+			_tui.tui_Word_Idx_Set(self.handle, value)
+
+# Python type for struct tui.CloseWord
+class CloseWord(go.GoClass):
+	""""""
+	def __init__(self, *args, **kwargs):
+		"""
+		handle=A Go-side object is always initialized with an explicit handle=arg
+		otherwise parameters can be unnamed in order of field names or named fields
+		in which case a new Go object is constructed first
+		"""
+		if len(kwargs) == 1 and 'handle' in kwargs:
+			self.handle = kwargs['handle']
+			_tui.IncRef(self.handle)
+		elif len(args) == 1 and isinstance(args[0], go.GoClass):
+			self.handle = args[0].handle
+			_tui.IncRef(self.handle)
+		else:
+			self.handle = _tui.tui_CloseWord_CTor()
+			_tui.IncRef(self.handle)
+			if  0 < len(args):
+				self.Word = args[0]
+			if "Word" in kwargs:
+				self.Word = kwargs["Word"]
+			if  5 < len(args):
+				self.Score = args[5]
+			if "Score" in kwargs:
+				self.Score = kwargs["Score"]
+	def __del__(self):
+		_tui.DecRef(self.handle)
+	def __str__(self):
+		pr = [(p, getattr(self, p)) for p in dir(self) if not p.startswith('__')]
+		sv = 'tui.CloseWord{'
+		first = True
+		for v in pr:
+			if callable(v[1]):
+				continue
+			if first:
+				first = False
+			else:
+				sv += ', '
+			sv += v[0] + '=' + str(v[1])
+		return sv + '}'
+	def __repr__(self):
+		pr = [(p, getattr(self, p)) for p in dir(self) if not p.startswith('__')]
+		sv = 'tui.CloseWord ( '
+		for v in pr:
+			if not callable(v[1]):
+				sv += v[0] + '=' + str(v[1]) + ', '
+		return sv + ')'
+	@property
+	def Word(self):
+		return Word(handle=_tui.tui_CloseWord_Word_Get(self.handle))
+	@Word.setter
+	def Word(self, value):
+		if isinstance(value, go.GoClass):
+			_tui.tui_CloseWord_Word_Set(self.handle, value.handle)
+		else:
+			raise TypeError("supplied argument type {t} is not a go.GoClass".format(t=type(value)))
+	@property
+	def Score(self):
+		return _tui.tui_CloseWord_Score_Get(self.handle)
+	@Score.setter
+	def Score(self, value):
+		if isinstance(value, go.GoClass):
+			_tui.tui_CloseWord_Score_Set(self.handle, value.handle)
+		else:
+			_tui.tui_CloseWord_Score_Set(self.handle, value)
+
 # Python type for struct tui.ClosenessSet
 class ClosenessSet(go.GoClass):
 	""""""
@@ -597,179 +770,6 @@ class Vectors(go.GoClass):
 		else:
 			_tui.tui_Vectors_Cols_Set(self.handle, value)
 
-# Python type for struct tui.Word
-class Word(go.GoClass):
-	""""""
-	def __init__(self, *args, **kwargs):
-		"""
-		handle=A Go-side object is always initialized with an explicit handle=arg
-		otherwise parameters can be unnamed in order of field names or named fields
-		in which case a new Go object is constructed first
-		"""
-		if len(kwargs) == 1 and 'handle' in kwargs:
-			self.handle = kwargs['handle']
-			_tui.IncRef(self.handle)
-		elif len(args) == 1 and isinstance(args[0], go.GoClass):
-			self.handle = args[0].handle
-			_tui.IncRef(self.handle)
-		else:
-			self.handle = _tui.tui_Word_CTor()
-			_tui.IncRef(self.handle)
-			if  0 < len(args):
-				self.Name = args[0]
-			if "Name" in kwargs:
-				self.Name = kwargs["Name"]
-			if  1 < len(args):
-				self.Dim = args[1]
-			if "Dim" in kwargs:
-				self.Dim = kwargs["Dim"]
-			if  2 < len(args):
-				self.Vector = args[2]
-			if "Vector" in kwargs:
-				self.Vector = kwargs["Vector"]
-			if  3 < len(args):
-				self.Vector2D = args[3]
-			if "Vector2D" in kwargs:
-				self.Vector2D = kwargs["Vector2D"]
-			if  4 < len(args):
-				self.Idx = args[4]
-			if "Idx" in kwargs:
-				self.Idx = kwargs["Idx"]
-	def __del__(self):
-		_tui.DecRef(self.handle)
-	def __str__(self):
-		pr = [(p, getattr(self, p)) for p in dir(self) if not p.startswith('__')]
-		sv = 'tui.Word{'
-		first = True
-		for v in pr:
-			if callable(v[1]):
-				continue
-			if first:
-				first = False
-			else:
-				sv += ', '
-			sv += v[0] + '=' + str(v[1])
-		return sv + '}'
-	def __repr__(self):
-		pr = [(p, getattr(self, p)) for p in dir(self) if not p.startswith('__')]
-		sv = 'tui.Word ( '
-		for v in pr:
-			if not callable(v[1]):
-				sv += v[0] + '=' + str(v[1]) + ', '
-		return sv + ')'
-	@property
-	def Name(self):
-		return _tui.tui_Word_Name_Get(self.handle)
-	@Name.setter
-	def Name(self, value):
-		if isinstance(value, go.GoClass):
-			_tui.tui_Word_Name_Set(self.handle, value.handle)
-		else:
-			_tui.tui_Word_Name_Set(self.handle, value)
-	@property
-	def Dim(self):
-		return _tui.tui_Word_Dim_Get(self.handle)
-	@Dim.setter
-	def Dim(self, value):
-		if isinstance(value, go.GoClass):
-			_tui.tui_Word_Dim_Set(self.handle, value.handle)
-		else:
-			_tui.tui_Word_Dim_Set(self.handle, value)
-	@property
-	def Vector(self):
-		return go.Slice_float64(handle=_tui.tui_Word_Vector_Get(self.handle))
-	@Vector.setter
-	def Vector(self, value):
-		if isinstance(value, go.GoClass):
-			_tui.tui_Word_Vector_Set(self.handle, value.handle)
-		else:
-			raise TypeError("supplied argument type {t} is not a go.GoClass".format(t=type(value)))
-	@property
-	def Vector2D(self):
-		return go.Slice_float64(handle=_tui.tui_Word_Vector2D_Get(self.handle))
-	@Vector2D.setter
-	def Vector2D(self, value):
-		if isinstance(value, go.GoClass):
-			_tui.tui_Word_Vector2D_Set(self.handle, value.handle)
-		else:
-			raise TypeError("supplied argument type {t} is not a go.GoClass".format(t=type(value)))
-	@property
-	def Idx(self):
-		return _tui.tui_Word_Idx_Get(self.handle)
-	@Idx.setter
-	def Idx(self, value):
-		if isinstance(value, go.GoClass):
-			_tui.tui_Word_Idx_Set(self.handle, value.handle)
-		else:
-			_tui.tui_Word_Idx_Set(self.handle, value)
-
-# Python type for struct tui.CloseWord
-class CloseWord(go.GoClass):
-	""""""
-	def __init__(self, *args, **kwargs):
-		"""
-		handle=A Go-side object is always initialized with an explicit handle=arg
-		otherwise parameters can be unnamed in order of field names or named fields
-		in which case a new Go object is constructed first
-		"""
-		if len(kwargs) == 1 and 'handle' in kwargs:
-			self.handle = kwargs['handle']
-			_tui.IncRef(self.handle)
-		elif len(args) == 1 and isinstance(args[0], go.GoClass):
-			self.handle = args[0].handle
-			_tui.IncRef(self.handle)
-		else:
-			self.handle = _tui.tui_CloseWord_CTor()
-			_tui.IncRef(self.handle)
-			if  0 < len(args):
-				self.Word = args[0]
-			if "Word" in kwargs:
-				self.Word = kwargs["Word"]
-			if  5 < len(args):
-				self.Score = args[5]
-			if "Score" in kwargs:
-				self.Score = kwargs["Score"]
-	def __del__(self):
-		_tui.DecRef(self.handle)
-	def __str__(self):
-		pr = [(p, getattr(self, p)) for p in dir(self) if not p.startswith('__')]
-		sv = 'tui.CloseWord{'
-		first = True
-		for v in pr:
-			if callable(v[1]):
-				continue
-			if first:
-				first = False
-			else:
-				sv += ', '
-			sv += v[0] + '=' + str(v[1])
-		return sv + '}'
-	def __repr__(self):
-		pr = [(p, getattr(self, p)) for p in dir(self) if not p.startswith('__')]
-		sv = 'tui.CloseWord ( '
-		for v in pr:
-			if not callable(v[1]):
-				sv += v[0] + '=' + str(v[1]) + ', '
-		return sv + ')'
-	@property
-	def Word(self):
-		return Word(handle=_tui.tui_CloseWord_Word_Get(self.handle))
-	@Word.setter
-	def Word(self, value):
-		if isinstance(value, go.GoClass):
-			_tui.tui_CloseWord_Word_Set(self.handle, value.handle)
-		else:
-			raise TypeError("supplied argument type {t} is not a go.GoClass".format(t=type(value)))
-	@property
-	def Score(self):
-		return _tui.tui_CloseWord_Score_Get(self.handle)
-	@Score.setter
-	def Score(self, value):
-		if isinstance(value, go.GoClass):
-			_tui.tui_CloseWord_Score_Set(self.handle, value.handle)
-		else:
-			_tui.tui_CloseWord_Score_Set(self.handle, value)
-
 
 # ---- Slices ---
 
@@ -784,14 +784,14 @@ def DenseToVectors(m):
 
 
 # ---- Functions ---
+def CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List, r, c, outputDim, Names):
+	"""CompressAndVisualize(int N, int WindowSizeX, int WindowSizeY, int NumWorkers, float Alpha, []float List, int r, int c, int outputDim, []str Names) str"""
+	return _tui.tui_CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List.handle, r, c, outputDim, Names.handle)
 def Plot(xWindowSize, yWindowSize, closeSet):
 	"""Plot(int xWindowSize, int yWindowSize, object closeSet) str"""
 	return _tui.tui_Plot(xWindowSize, yWindowSize, closeSet.handle)
 def Visualize(res):
 	"""Visualize(object res) str"""
 	return _tui.tui_Visualize(res.handle)
-def CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List, r, c, outputDim, Names):
-	"""CompressAndVisualize(int N, int WindowSizeX, int WindowSizeY, int NumWorkers, float Alpha, []float List, int r, int c, int outputDim, []str Names) str"""
-	return _tui.tui_CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List.handle, r, c, outputDim, Names.handle)
 
 

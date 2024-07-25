@@ -64,7 +64,7 @@ func Plot(xWindowSize, yWindowSize int, closeSet *ClosenessSet) string {
 		line := ""
 		for x := -xWindowSize; x <= xWindowSize; x++ {
 			if y == 0 && x == 0 {
-				line += "\033[31m┼\033[0m"
+				line += fmt.Sprintf("\033[31m%s\033[0m", closeSet.CentralWord.Name)
 			}
 
 			for _, word := range words {
