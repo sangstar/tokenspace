@@ -211,9 +211,9 @@ mod.add_function('tui_CloseWord_Word_Set', None, [param('int64_t', 'handle'), pa
 mod.add_function('tui_CloseWord_Score_Get', retval('double'), [param('int64_t', 'handle')])
 mod.add_function('tui_CloseWord_Score_Set', None, [param('int64_t', 'handle'), param('double', 'val')])
 add_checked_function(mod, 'tui_DenseToVectors', retval('int64_t'), [param('int64_t', 'm')])
-add_checked_function(mod, 'tui_CompressAndVisualize', retval('char*'), [param('int64_t', 'N'), param('int64_t', 'WindowSizeX'), param('int64_t', 'WindowSizeY'), param('int64_t', 'NumWorkers'), param('double', 'Alpha'), param('int64_t', 'List'), param('int64_t', 'r'), param('int64_t', 'c'), param('int64_t', 'outputDim'), param('int64_t', 'Names')])
 add_checked_string_function(mod, 'tui_Plot', retval('char*'), [param('int64_t', 'xWindowSize'), param('int64_t', 'yWindowSize'), param('int64_t', 'closeSet')])
 add_checked_function(mod, 'tui_Visualize', retval('char*'), [param('int64_t', 'res')])
+add_checked_function(mod, 'tui_CompressAndVisualize', retval('char*'), [param('int64_t', 'N'), param('int64_t', 'WindowSizeX'), param('int64_t', 'WindowSizeY'), param('int64_t', 'NumWorkers'), param('double', 'Alpha'), param('int64_t', 'List'), param('int64_t', 'r'), param('int64_t', 'c'), param('int64_t', 'outputDim'), param('int64_t', 'Names')])
 
 mod.generate(open('tui.c', 'w'))
 

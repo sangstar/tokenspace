@@ -3145,36 +3145,6 @@ PyObject * _wrap__tui_tui_DenseToVectors(PyObject * PYBINDGEN_UNUSED(dummy), PyO
 
 
 PyObject *
-_wrap__tui_tui_CompressAndVisualize(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
-{
-    PyObject *py_retval;
-    char *retval;
-    int64_t N;
-    int64_t WindowSizeX;
-    int64_t WindowSizeY;
-    int64_t NumWorkers;
-    double Alpha;
-    int64_t List;
-    int64_t r;
-    int64_t c;
-    int64_t outputDim;
-    int64_t Names;
-    const char *keywords[] = {"N", "WindowSizeX", "WindowSizeY", "NumWorkers", "Alpha", "List", "r", "c", "outputDim", "Names", NULL};
-
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LLLLdLLLLL", (char **) keywords, &N, &WindowSizeX, &WindowSizeY, &NumWorkers, &Alpha, &List, &r, &c, &outputDim, &Names)) {
-        return NULL;
-    }
-    retval = tui_CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List, r, c, outputDim, Names);
-    if (PyErr_Occurred()) {
-        return NULL;
-    }
-    py_retval = Py_BuildValue((char *) "s", retval);
-    return py_retval;
-}
-PyObject * _wrap__tui_tui_CompressAndVisualize(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
-
-
-PyObject *
 _wrap__tui_tui_Plot(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
@@ -3218,6 +3188,36 @@ _wrap__tui_tui_Visualize(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyO
     return py_retval;
 }
 PyObject * _wrap__tui_tui_Visualize(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__tui_tui_CompressAndVisualize(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    char *retval;
+    int64_t N;
+    int64_t WindowSizeX;
+    int64_t WindowSizeY;
+    int64_t NumWorkers;
+    double Alpha;
+    int64_t List;
+    int64_t r;
+    int64_t c;
+    int64_t outputDim;
+    int64_t Names;
+    const char *keywords[] = {"N", "WindowSizeX", "WindowSizeY", "NumWorkers", "Alpha", "List", "r", "c", "outputDim", "Names", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "LLLLdLLLLL", (char **) keywords, &N, &WindowSizeX, &WindowSizeY, &NumWorkers, &Alpha, &List, &r, &c, &outputDim, &Names)) {
+        return NULL;
+    }
+    retval = tui_CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List, r, c, outputDim, Names);
+    if (PyErr_Occurred()) {
+        return NULL;
+    }
+    py_retval = Py_BuildValue((char *) "s", retval);
+    return py_retval;
+}
+PyObject * _wrap__tui_tui_CompressAndVisualize(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 static PyMethodDef _tui_functions[] = {
     {(char *) "GoPyInit", (PyCFunction) _wrap__tui_GoPyInit, METH_NOARGS, "GoPyInit()\n\n" },
@@ -3390,9 +3390,9 @@ static PyMethodDef _tui_functions[] = {
     {(char *) "tui_CloseWord_Score_Get", (PyCFunction) _wrap__tui_tui_CloseWord_Score_Get, METH_KEYWORDS|METH_VARARGS, "tui_CloseWord_Score_Get(handle)\n\ntype: handle: int64_t" },
     {(char *) "tui_CloseWord_Score_Set", (PyCFunction) _wrap__tui_tui_CloseWord_Score_Set, METH_KEYWORDS|METH_VARARGS, "tui_CloseWord_Score_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: double" },
     {(char *) "tui_DenseToVectors", (PyCFunction) _wrap__tui_tui_DenseToVectors, METH_KEYWORDS|METH_VARARGS, "tui_DenseToVectors(m)\n\ntype: m: int64_t" },
-    {(char *) "tui_CompressAndVisualize", (PyCFunction) _wrap__tui_tui_CompressAndVisualize, METH_KEYWORDS|METH_VARARGS, "tui_CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List, r, c, outputDim, Names)\n\ntype: N: int64_t\ntype: WindowSizeX: int64_t\ntype: WindowSizeY: int64_t\ntype: NumWorkers: int64_t\ntype: Alpha: double\ntype: List: int64_t\ntype: r: int64_t\ntype: c: int64_t\ntype: outputDim: int64_t\ntype: Names: int64_t" },
     {(char *) "tui_Plot", (PyCFunction) _wrap__tui_tui_Plot, METH_KEYWORDS|METH_VARARGS, "tui_Plot(xWindowSize, yWindowSize, closeSet)\n\ntype: xWindowSize: int64_t\ntype: yWindowSize: int64_t\ntype: closeSet: int64_t" },
     {(char *) "tui_Visualize", (PyCFunction) _wrap__tui_tui_Visualize, METH_KEYWORDS|METH_VARARGS, "tui_Visualize(res)\n\ntype: res: int64_t" },
+    {(char *) "tui_CompressAndVisualize", (PyCFunction) _wrap__tui_tui_CompressAndVisualize, METH_KEYWORDS|METH_VARARGS, "tui_CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List, r, c, outputDim, Names)\n\ntype: N: int64_t\ntype: WindowSizeX: int64_t\ntype: WindowSizeY: int64_t\ntype: NumWorkers: int64_t\ntype: Alpha: double\ntype: List: int64_t\ntype: r: int64_t\ntype: c: int64_t\ntype: outputDim: int64_t\ntype: Names: int64_t" },
     {NULL, NULL, 0, NULL}
 };
 #if PY_VERSION_HEX >= 0x03000000

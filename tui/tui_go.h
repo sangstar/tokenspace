@@ -376,9 +376,9 @@ extern void tui_CloseWord_Word_Set(long long handle, long long val);
 extern double tui_CloseWord_Score_Get(long long handle);
 extern void tui_CloseWord_Score_Set(long long handle, double val);
 extern long long tui_DenseToVectors(long long m);
-extern char* tui_CompressAndVisualize(long long N, long long WindowSizeX, long long WindowSizeY, long long NumWorkers, double Alpha, long long List, long long r, long long c, long long outputDim, long long Names);
 extern char* tui_Plot(long long xWindowSize, long long yWindowSize, long long closeSet);
 extern char* tui_Visualize(long long res);
+extern char* tui_CompressAndVisualize(long long N, long long WindowSizeX, long long WindowSizeY, long long NumWorkers, double Alpha, long long List, long long r, long long c, long long outputDim, long long Names);
 
 #ifdef __cplusplus
 }

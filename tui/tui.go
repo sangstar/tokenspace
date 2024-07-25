@@ -1862,21 +1862,6 @@ func tui_DenseToVectors(m CGoHandle) CGoHandle {
 
 // ---- Functions ---
 
-//export tui_CompressAndVisualize
-func tui_CompressAndVisualize(N C.longlong, WindowSizeX C.longlong, WindowSizeY C.longlong, NumWorkers C.longlong, Alpha C.double, List CGoHandle, r C.longlong, c C.longlong, outputDim C.longlong, Names CGoHandle) *C.char {
-	_saved_thread := C.PyEval_SaveThread()
-	var __err error
-	__err = tui.CompressAndVisualize(int(N), int(WindowSizeX), int(WindowSizeY), int(NumWorkers), float64(Alpha), deptrFromHandle_Slice_float64(List), int(r), int(c), int(outputDim), deptrFromHandle_Slice_string(Names))
-
-	C.PyEval_RestoreThread(_saved_thread)
-	if __err != nil {
-		estr := C.CString(__err.Error())
-		C.PyErr_SetString(C.PyExc_RuntimeError, estr)
-		return estr
-	}
-	return C.CString("")
-}
-
 //export tui_Plot
 func tui_Plot(xWindowSize C.longlong, yWindowSize C.longlong, closeSet CGoHandle) *C.char {
 	_saved_thread := C.PyEval_SaveThread()
@@ -1890,6 +1875,21 @@ func tui_Visualize(res CGoHandle) *C.char {
 	_saved_thread := C.PyEval_SaveThread()
 	var __err error
 	__err = tui.Visualize(ptrFromHandle_Ptr_tui_Result(res))
+
+	C.PyEval_RestoreThread(_saved_thread)
+	if __err != nil {
+		estr := C.CString(__err.Error())
+		C.PyErr_SetString(C.PyExc_RuntimeError, estr)
+		return estr
+	}
+	return C.CString("")
+}
+
+//export tui_CompressAndVisualize
+func tui_CompressAndVisualize(N C.longlong, WindowSizeX C.longlong, WindowSizeY C.longlong, NumWorkers C.longlong, Alpha C.double, List CGoHandle, r C.longlong, c C.longlong, outputDim C.longlong, Names CGoHandle) *C.char {
+	_saved_thread := C.PyEval_SaveThread()
+	var __err error
+	__err = tui.CompressAndVisualize(int(N), int(WindowSizeX), int(WindowSizeY), int(NumWorkers), float64(Alpha), deptrFromHandle_Slice_float64(List), int(r), int(c), int(outputDim), deptrFromHandle_Slice_string(Names))
 
 	C.PyEval_RestoreThread(_saved_thread)
 	if __err != nil {

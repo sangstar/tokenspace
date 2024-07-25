@@ -16,20 +16,17 @@ type TestData struct {
 }
 
 func TestSVDOnLargeMatrix(t *testing.T) {
-	// Open JSON file
 	file, err := os.Open("../../data.json")
 	if err != nil {
 		t.Fatalf("Failed to open data.json: %v", err)
 	}
 	defer file.Close()
 
-	// Read JSON file
 	byteValue, err := ioutil.ReadAll(file)
 	if err != nil {
 		t.Fatalf("Failed to read data.json: %v", err)
 	}
 
-	// Parse JSON file
 	var testData TestData
 	err = json.Unmarshal(byteValue, &testData)
 	if err != nil {

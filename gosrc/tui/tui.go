@@ -64,7 +64,7 @@ func Plot(xWindowSize, yWindowSize int, closeSet *ClosenessSet) string {
 		line := ""
 		for x := -xWindowSize; x <= xWindowSize; x++ {
 			if y == 0 && x == 0 {
-				line += "\033[34m┼\033[0m"
+				line += "\033[31m┼\033[0m"
 			}
 
 			for _, word := range words {
@@ -87,6 +87,7 @@ func Plot(xWindowSize, yWindowSize int, closeSet *ClosenessSet) string {
 func visualize(results *ResultSet) error {
 	for {
 		centralWord := readUserInput()
+		clearScreen()
 		if centralWord == "exit!" {
 			os.Exit(1)
 		}

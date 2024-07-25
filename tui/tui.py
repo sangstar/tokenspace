@@ -784,14 +784,14 @@ def DenseToVectors(m):
 
 
 # ---- Functions ---
-def CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List, r, c, outputDim, Names):
-	"""CompressAndVisualize(int N, int WindowSizeX, int WindowSizeY, int NumWorkers, float Alpha, []float List, int r, int c, int outputDim, []str Names) str"""
-	return _tui.tui_CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List.handle, r, c, outputDim, Names.handle)
 def Plot(xWindowSize, yWindowSize, closeSet):
 	"""Plot(int xWindowSize, int yWindowSize, object closeSet) str"""
 	return _tui.tui_Plot(xWindowSize, yWindowSize, closeSet.handle)
 def Visualize(res):
 	"""Visualize(object res) str"""
 	return _tui.tui_Visualize(res.handle)
+def CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List, r, c, outputDim, Names):
+	"""CompressAndVisualize(int N, int WindowSizeX, int WindowSizeY, int NumWorkers, float Alpha, []float List, int r, int c, int outputDim, []str Names) str"""
+	return _tui.tui_CompressAndVisualize(N, WindowSizeX, WindowSizeY, NumWorkers, Alpha, List.handle, r, c, outputDim, Names.handle)
 
 
