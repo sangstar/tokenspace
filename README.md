@@ -1,8 +1,7 @@
 # wordspace
 Visualize word embeddings in a terminal window.
 
-![output](https://github.com/user-attachments/assets/e548e611-7a2d-4bf7-8ca2-3959e43a0ef0)
-
+![wordspace_output](https://github.com/user-attachments/assets/eab9f540-bf55-415a-b11b-11fed350a380)
 
 The symbol `┼` indicates the position of the central word,
 and words scattered around it are the top `n` most similar
