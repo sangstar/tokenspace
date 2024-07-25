@@ -1,5 +1,5 @@
 # wordspace
-Visualize word2vec embeddings in a terminal window.
+Visualize word embeddings in a terminal window.
 
 ![output](https://github.com/user-attachments/assets/e548e611-7a2d-4bf7-8ca2-3959e43a0ef0)
 
@@ -10,7 +10,7 @@ words by cosine similarity, positioned according to
 their reduced 2D projection relative to the central word.
 
 
-This package reduces word2vec vectors (loaded from Gensim)
+This package reduces word vectors (loaded from Gensim)
 to two dimensions by getting the singular value decomposition
 of the embeddings matrix and approximating the matrix using 
 its first two left singular vectors along with its values. If
