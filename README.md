@@ -1,26 +1,8 @@
 # wordspace
 Visualize word2vec embeddings in a terminal window.
 
-```
-Enter text (exit! to escape): football
+![output](https://github.com/user-attachments/assets/25bac083-3af0-454a-b05a-68137d18b6a2)
 
-                   (warriors) (halftime) 
-                   (saints) (reds) 
-             (soccer) (nba) (nfl)   (tournament) (lions)  
-             (lead)   (tennis)  (division)(alabama)(bears)   
-              (basketball)(played) (tough)  (michigan)    
-             (college)  (competition)(major)  (career)    
-        (games) (season) (sport) (canada)    (baseball)(challenge)  (championship)(crowd)    
-            (winning)(performance)   (practice)      
-           (country)   (hockey)       
-      (year)    (second)           
-          ┼  (player)(spain) (race)(points)(biggest)  (champion)(teams)      
-         (america)            
-          (both) (won)          
-           (score)          
-         (match)            
-          (league)    
-```
 
 The symbol `┼` indicates the position of the central word,
 and words scattered around it are the top `n` most similar
