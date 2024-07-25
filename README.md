@@ -1,7 +1,7 @@
 # wordspace
 Visualize word2vec embeddings in a terminal window.
 
-![output](https://github.com/user-attachments/assets/25bac083-3af0-454a-b05a-68137d18b6a2)
+![output](https://github.com/user-attachments/assets/5406c79f-98f2-45b1-9be8-0c710351ed09)
 
 
 The symbol `┼` indicates the position of the central word,
